@@ -1,0 +1,55 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ruby-rails-postgres
+{
+	"name": "TakeyuWeb Rails",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	// "forwardPorts": [3000, 5432],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "bundle install && rake db:setup",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"shopify.ruby-lsp",
+				"KoichiSasada.vscode-rdbg",
+				"bradlc.vscode-tailwindcss"
+			],
+			"settings": {
+				"[ruby]": {
+					"editor.defaultFormatter": "Shopify.ruby-lsp", // Use the Ruby LSP as the default formatter
+					"editor.formatOnSave": true, // Format files automatically when saving
+					"editor.tabSize": 2, // Use 2 spaces for indentation
+					"editor.insertSpaces": true, // Use spaces and not tabs for indentantion
+					"editor.semanticHighlighting.enabled": true, // Enable semantic highlighting
+					"editor.formatOnType": true // Enable formatting while typing
+				},
+				"rubyLsp.rubyVersionManager": "none", // Disable the Ruby version manager
+				"rubyLsp.formatter": "rubocop", // Use Rubocop as the default formatter
+				"[erb]": {
+					"editor.defaultFormatter": "vscode.html-language-features", // Use the default HTML formatter for ERB files
+					"editor.formatOnSave": true, // Format files automatically when saving
+					"editor.tabSize": 2, // Use 2 spaces for indentation
+					"editor.insertSpaces": true, // Use spaces and not tabs for indentantion
+					"editor.semanticHighlighting.enabled": true, // Enable semantic highlighting
+					"editor.formatOnType": true // Enable formatting while typing
+				},
+				"[css]": {
+					"editor.tabSize": 2, // Use 2 spaces for indentation
+					"editor.insertSpaces": true // Use spaces and not tabs for indentantion
+				},
+				"files.associations": {
+					"*.tailwind.css": "tailwindcss"
+				},
+				"tailwindCSS.experimental.configFile": "config/tailwind.config.js"
+			}
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
