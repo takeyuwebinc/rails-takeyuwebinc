@@ -61,5 +61,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
 
+  # A Ruby LSP extension for Rails
+  gem "ruby-lsp-rails"
+
+  # Omakase Ruby styling for Rails
+  gem "rubocop-rails-omakase", require: false
+end
