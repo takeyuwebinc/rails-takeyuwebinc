@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "private": "true",
+  "scripts": {
+    "build:css": "npm-run-all --parallel build:css:*",
+    "build:css:application": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css -c ./tailwind-application.config.js --minify",
+    "build:css:active_admin": "tailwindcss -i ./app/assets/stylesheets/active_admin.tailwind.css -o ./app/assets/builds/active_admin.css -c ./tailwind-active_admin.config.js --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.1"
+  }
+}

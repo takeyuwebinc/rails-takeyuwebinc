@@ -1,2 +1,3 @@
 web: rdbg --open --nonstop bin/rails -- server
-css: bin/rails tailwindcss:watch
+tailwind-active_admin: yarn build:css:application --watch
+tailwind-application: yarn build:css:active_admin --watch
