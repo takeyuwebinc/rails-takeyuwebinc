@@ -15,6 +15,6 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
-    "@activeadmin/activeadmin": "^3.2.0"
+    "@activeadmin/activeadmin": "^4.0.0-beta5"
   }
 }

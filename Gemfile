@@ -69,7 +69,7 @@ group :development do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem "activeadmin", "~> 4.0.0.beta4"
+gem "activeadmin", "~> 4.0.0.beta5"
 
 gem "devise", "~> 4.9"
 
