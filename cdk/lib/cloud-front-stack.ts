@@ -3,6 +3,10 @@ import { Construct } from 'constructs';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudfront_origins from 'aws-cdk-lib/aws-cloudfront-origins';
+import * as acm from 'aws-cdk-lib/aws-certificatemanager';
+import * as route53 from 'aws-cdk-lib/aws-route53';
+import * as route53_targets from 'aws-cdk-lib/aws-route53-targets';
+import { SsmParameterReader } from './ssm-parameter-reader';
 
 export class CloudFrontStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -21,7 +25,21 @@ export class CloudFrontStack extends cdk.Stack {
       }),
       runtime: cloudfront.FunctionRuntime.JS_2_0,
     });
+    const publicHostedZone = route53.PublicHostedZone.fromLookup(
+      this,
+      "PublicHostedZone",
+      {
+        domainName: "takeyuweb.co.jp",
+      }
+    );
+    const certificateArnReader = new SsmParameterReader(this, 'CertificateArnParameter', {
+      parameterName: '/rails-takeyuwebinc/certificate_arn',
+      region: 'us-east-1',
+    });
+    const certificate = acm.Certificate.fromCertificateArn(this, 'Certificate', certificateArnReader.getParameterValue());
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
+      domainNames: ['takeyuweb.co.jp', 'www.takeyuweb.co.jp'],
+      certificate: certificate,
       comment: 'takeyuweb.co.jp',
       defaultBehavior: {
         origin: new cloudfront_origins.HttpOrigin(origin),
@@ -64,6 +82,17 @@ export class CloudFrontStack extends cdk.Stack {
       },
       minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
       priceClass: cloudfront.PriceClass.PRICE_CLASS_200,
+    });
+    new route53.ARecord(this, 'ARecord', {
+      zone: publicHostedZone,
+      target: route53.RecordTarget.fromAlias(new route53_targets.CloudFrontTarget(distribution)),
+      recordName: 'takeyuweb.co.jp',
+    });
+    new route53.CnameRecord(this, 'CnameRecord', {
+      zone: publicHostedZone,
+      domainName: 'takeyuweb.co.jp.',
+      recordName: 'www',
+      ttl: cdk.Duration.minutes(5),
     });
   }
 }

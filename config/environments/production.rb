@@ -90,6 +90,8 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   # x-forwarded-host 入る値が複数ある場合はすべてを指定する
   config.hosts = [
+    "takeyuweb.co.jp",
+    /.+\.takeyuweb\.co.jp/,
     /.+\.cloudfront\.net/,
     /.+\.ts\.net/
   ]

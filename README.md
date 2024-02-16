@@ -84,5 +84,6 @@ CDK実行
 $ cd cdk
 $ yarn
 $ yarn cdk bootstrap
-$ yarn cdk deploy
+$ yarn cdk deploy CertificateStack
+$ yarn cdk deploy CloudFrontStack
 ```
