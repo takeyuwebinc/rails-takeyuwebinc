@@ -79,6 +79,9 @@ group :development do
 
   # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
   gem "brakeman", require: false
+
+  # A fully configurable and extendable Git hook manager
+  gem "overcommit", require: false
 end
 
 gem "activeadmin", "~> 4.0.0.beta5"
