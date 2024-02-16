@@ -9,9 +9,29 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="overflow-x-hidden">
+    <header class="flex justify-between items-center bg-corporate-700 py-2 px-5 fixed top-0 w-screen h-16 z-50 border-b shadow">
+      <div>
+        <%= link_to "TakeyuWeb Inc.", root_path, class: "text-2xl font-bold no-underline text-white" %>
+      </div>
+      <nav class="flex">
+        <%= link_to "お問い合わせ", "https://forms.gle/6NhA1352ZuRy4xiU7", class: "text-white" %>
+      </nav>
+    </header>
+    <div class="h-[calc(100vh)] flex flex-col">
+      <div class="container mx-auto grow">
+        <main class="px-5 pt-16">
+          <%= yield %>
+        </main>
+      </div>
+      <footer class="border-t border-gray-900/10 py-3 sm:mt-3 lg:mt-5 shrink-0" aria-labelledby="footer-heading">
+        <div class="container mx-auto">
+          <div class="flex flex-col text-center sm:flex-row sm:justify-between sm:text-left">
+            <p class="text-xs leading-5 text-gray-500">© <%= Date.current.year %> TakeyuWeb Inc. All rights reserved.</p>
+            <p class="text-xs leading-5 text-gray-500">Built with Rails <%= Rails.version %>, Ruby <%= RUBY_VERSION %></p>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
