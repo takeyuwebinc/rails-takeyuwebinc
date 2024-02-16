@@ -2,11 +2,11 @@
 service: rails-takeyuwebinc
 
 # Name of the container image.
-image: app.takeyuweb.co.jp/rails-takeyuwebinc
+image: takeyuweb/rails-takeyuwebinc
 
 # Deploy to these servers.
 servers:
-  - prod.takeyuweb.co.jp
+  - barbatus
 
 # Credentials for your image host.
 registry:
@@ -30,11 +30,12 @@ env:
     - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
-ssh:
-  user: ubuntu
+# ssh:
+#  user: ubuntu
 
 # Configure builder setup.
-# builder:
+builder:
+  multiarch: false
 #   args:
 #     RUBY_VERSION: 3.2.0
 #   secrets:
@@ -98,3 +99,9 @@ ssh:
 # useful for more complex deploy configurations.
 #
 # allow_empty_roles: false
+
+# kamalに作成を任せると root になり書き込みできないので、先に作成して Dockerfile で指定した uid / gid にしておく
+# mkdir -p /srv/kamal/rails-takeyuwebinc-storage
+# chown 1000:1000 /srv/kamal/rails-takeyuwebinc-storage
+volumes:
+  - "/srv/kamal/rails-takeyuwebinc-storage:/rails/storage"
