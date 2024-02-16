@@ -88,4 +88,10 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # x-forwarded-host 入る値が複数ある場合はすべてを指定する
+  config.hosts = [
+    /.+\.cloudfront\.net/,
+    /.+\.ts\.net/
+  ]
+  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end

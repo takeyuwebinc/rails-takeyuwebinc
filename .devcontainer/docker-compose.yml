@@ -7,6 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ../..:/workspaces:cached
+      - awscli-data:/home/vscode/.aws
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
     depends_on:
@@ -30,4 +31,6 @@ services:
 
 volumes:
   tailscale-data:
+    driver: local
+  awscli-data:
     driver: local

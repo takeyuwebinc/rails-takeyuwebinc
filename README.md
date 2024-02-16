@@ -39,3 +39,50 @@ $ chown 1000:1000 /srv/kamal/rails-takeyuwebinc-storage
 $ gem install kamal
 $ kamal deploy
 ```
+
+## Tailscale Funnel + CloudFront による公開
+### Tailscale Funnel
+1. ACL
+
+```
+  "groups": {
+    "group:funnel":  ["xxxxxxxxxxxxxx@takeyuweb.co.jp"],
+  },
+  "nodeAttrs": [
+    {
+      "target": ["group:funnel"],
+      "attr":   ["funnel"],
+    },
+  ],
+```
+
+2. Server で Funnel を有効にする
+
+```
+$ tailscale funnel --bg http://127.0.0.1:80
+
+Available on the internet: 
+https://xxxxxxx.xxxxxxxx.ts.net/
+|-- proxy http://127.0.0.1:80
+```
+
+### AWS
+
+```
+$ aws configure
+```
+
+CloudFrontのオリジンを Parameter に入れておく
+
+```
+$ aws ssm put-parameter --name "/rails-takeyuwebinc/origin" --type "String" --value "xxxxxxx.xxxxxxxx.ts.net" --overwrite
+```
+
+CDK実行
+
+```
+$ cd cdk
+$ yarn
+$ yarn cdk bootstrap
+$ yarn cdk deploy
+```
