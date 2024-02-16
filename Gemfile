@@ -67,6 +67,12 @@ group :development do
 
   # Omakase Ruby styling for Rails
   gem "rubocop-rails-omakase", require: false
+
+  # bundler-audit provides patch-level verification for Bundled apps.
+  gem "bundler-audit", require: false
+
+  # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
+  gem "brakeman", require: false
 end
 
 gem "activeadmin", "~> 4.0.0.beta5"
