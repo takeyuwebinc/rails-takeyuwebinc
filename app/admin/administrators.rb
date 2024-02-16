@@ -24,5 +24,4 @@ ActiveAdmin.register Administrator do
     end
     f.actions
   end
-
 end
