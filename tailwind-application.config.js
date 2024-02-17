@@ -23,6 +23,7 @@ module.exports = {
         'corporate-700': '#008048',
         'corporate-800': '#004d25',
         'corporate-900': '#001b07',
+        'ruby': '#cc342d',
       },
     },
   },

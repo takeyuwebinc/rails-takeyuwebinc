@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/4c6505265e.js" crossorigin="anonymous"></script>
   </head>
 
   <body class="overflow-x-hidden bg-slate-50 dark:bg-slate-900">
@@ -29,7 +30,7 @@
           <div class="px-5">
             <div class="flex flex-col text-center sm:flex-row sm:justify-between sm:text-left px-5 sm:px-10">
               <p class="text-xs leading-5 text-gray-500 dark:text-gray-200">© <%= Date.current.year %> TakeyuWeb Inc. All rights reserved.</p>
-              <p class="text-xs leading-5 text-gray-500 dark:text-gray-200">Built with Rails <%= Rails.version %>, Ruby <%= RUBY_VERSION %></p>
+              <p class="text-xs leading-5 text-gray-500 dark:text-gray-200">Built with Rails <%= Rails.version %>, Ruby <%= RUBY_VERSION %> (<a href="https://github.com/takeyuwebinc/rails-takeyuwebinc"><i class="fa-brands fa-github"></i> GitHub</a>)</p>
             </div>
           </div>
         </div>
