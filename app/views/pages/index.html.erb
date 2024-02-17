@@ -1,5 +1,109 @@
-<div class="flex-col space-y-8 w-full">
-  <div class="pt-10 text-center">
-    <h1 class="text-2xl">WIP</h1>
+<div class="flex-col space-y-12 w-full py-20">
+  <div class="pb-10 px-5 sm:px-10 text-left">
+    <h1 class="text-2xl leading-10 font-extrabold">スペシャリストによる<br><span class="text-3xl">Ruby on Rails</span><br>技術支援サービス</h1>
+    <p class="text-sm leading-5 text-gray-500 mt-3">高い専門性を武器に Ruby on Rails 開発の課題解決を強力にサポートします。</p>
+  </div>
+
+  <div class="rounded-lg bg-corporate-900 py-5 px-5 sm:px-10 text-white min-w-fit">
+    <h2 class="leading-5 text-center sm:text-left">私たちは Ruby コミュニティを応援しています。</h2>
+    <div class="flex space-y-3 sm:space-y-0 flex-col sm:flex-row sm:space-x-3 justify-start pt-5 w-full">
+      <div class="text-center sm:text-left">
+        <%= link_to 'https://rubykaigi.org/2024/' do %>
+          <%= image_tag "rubykaigi2024.png", alt: "RubyKaigi 2024@NAHA,OKINAWA", class: "h-28 w-auto inline-block border-2 border-white" %>
+        <% end %>
+      </div>
+      <div class="text-center sm:text-left">
+        <%= link_to 'https://2023.rubyworld-conf.org' do %>
+          <%= image_tag "rwc2023-300x250.jpg", alt: "RubyWorldConference 2023@MATSUE", class: "h-28 w-auto inline-block border-2 border-white" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-5 sm:px-10 pt-10">
+    <h2 class="text-xl sm:text-2xl leading-10 font-semibold">サービス</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-4">
+      <div>
+        <h3 class="font-semibold leading-10">受託開発</h3>
+        <p class="text-sm leading-6 mt-2">お客様はビジネスの肝となるアイデアに集中いただき、具体的な仕様やシステム設計、デザイン、実装などすべてお任せいただけます。</p>
+        <p class="text-sm leading-6 mt-2">新規サービス開発はもちろん、他社様で開発された Ruby on Rails アプリケーションの引継ぎと改善もお任せください。</p>
+      </div>
+      <div>
+        <h3 class="font-semibold leading-10">技術支援</h3>
+        <p class="text-sm leading-6 mt-2">お客様のチームの一員となり、 Ruby on Rails やその周辺技術についての相談を受けたり、最新情報の情報共有、技術的に難しい領域の開発など、Ruby on Rails の専門家としてお客様の様々な問題解決を支援します。</p>
+        <p class="text-sm leading-6 mt-2">Ruby on Rails にあまり詳しくなく、基盤を構築してほしい、実装難度の高いものの参考実装をしてほしいなど、ノウハウを吸収したいチームに。</p>
+      </div>
+      <div>
+        <h3 class="font-semibold leading-10">技術顧問</h3>
+        <p class="text-sm leading-6 mt-2">月々一定の顧問料で Ruby on Rails やその周辺技術についての相談を受けたり、最新情報の情報共有、技術的に難しい領域の開発など、Ruby on Rails の専門家としてアドバイスをします。</p>
+        <p class="text-sm leading-6 mt-2">常時でなくても、質問や壁打ちできる相手が欲しい！そんなお客様にお勧めです。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-corporate-800 text-white ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] pl-[calc(50vw-50%)] pr-[calc(50vw-50%)]">
+    <div class="px-5 sm:px-10 pt-10 pb-10">
+      <h2 class="text-xl sm:text-2xl leading-10 font-semibold">Ruby on Rails をお勧めする理由</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-4">
+        <div>
+          <h3 class="font-semibold leading-10">迅速な開発</h3>
+          <p class="text-sm leading-6 mt-2">少人数で効率よくWebサービスを構築できます。</p>
+          <p class="text-sm leading-6 mt-2">フルスタックのフレームワークであり、フロントエンド・バックエンドからテストまで標準のやり方があるため、効率的に開発することができます。</p>
+        </div>
+        <div>
+          <h3 class="font-semibold leading-10">拡張性とメンテナンスのしやすさ</h3>
+          <p class="text-sm leading-6 mt-2">開発効率が高くサービスの立ち上げに有利なだけでなく、十分なスキルのある技術者が適切に扱っていれば、ビジネスのスケールにも十分に追従することができます。</p>
+          <p class="text-sm leading-6 mt-2">設定より規約、RAILSWAY と呼ばれる Ruby on Rails 標準の考え方・開発方法があり、これに則って構築を進めることで比較的容易に内部構造を理解できるようになり、長期的にわたってアップグレードを継続することができます。</p>
+        </div>
+        <div>
+          <h3 class="font-semibold leading-10">成熟したコミュニティ</h3>
+          <p class="text-sm leading-6 mt-2">Ruby on Rails は2005年にバージョン1.0.0が登場して以来、20年近く選ばれ続けている信頼性のあるフレームワークである一方、挑戦的な新機能の提案も続け、現在においても進化を続けている大変息の長いWebアプリケーションフレームワークです。</p>
+          <p class="text-sm leading-6 mt-2">Ruby on Railsは活発なコミュニティに支えられており、多くの開発者や企業が使用しています。これにより、問題発生時の解決策が容易に見つかり、継続的なサポートやアップデートが保証されます。また、世界中の多くのプロジェクトで使用されているため、信頼性と実績があります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-5 sm:px-10 pt-10">
+    <h2 class="text-xl sm:text-2xl leading-10 font-semibold">お知らせ</h2>
+    <div class="-mx-4 mt-4 flow-root sm:mx-0">
+      <table class="min-w-full">
+        <colgroup>
+          <col class="w-full sm:w-3/4">
+          <col class="sm:w-1/4">
+        </colgroup>
+        <thead class="sm:border-b border-gray-300 text-gray-900">
+          <tr>
+            <th scope="col" class="hidden sm:table-cell py-3.5 pl-0 pr-3 text-left text-sm font-semibold text-gray-900">見出し</th>
+            <th scope="col" class="hidden sm:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">掲載日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sm:border-b border-gray-200">
+            <td class="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+              <div class="font-medium text-gray-900">ウェブサイトリニューアル</div>
+              <div class="mt-1 truncate text-gray-500">新しい技術を積極的に採用し試験する目的で、コーポレートサイトをリニューアルしました。今後は様々な実験的試みを行っていき、得られた知見を積極的に公開していく予定です。</div>
+              <div class="sm:hidden py-5 text-left text-xs text-gray-500">2024年2月17日</div>
+            </td>
+            <td class="hidden px-3 py-5 text-left text-sm text-gray-500 sm:table-cell">2024年2月17日</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="px-5 sm:px-10 pt-10">
+    <h2 class="text-xl sm:text-2xl leading-10 font-semibold">ブログ</h2>
+    <div class="mt-4">
+      <%= link_to 'Zenn', 'https://zenn.dev/p/takeyuwebinc' %>
+    </div>
+  </div>
+
+  <div class="px-5 sm:px-10 pt-10">
+    <h2 class="text-xl sm:text-2xl leading-10 font-semibold">お問い合わせ</h2>
+    <div class="mt-4">
+      <p>Ruby on Rails に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+      <%= link_to 'Googleフォーム', 'https://forms.gle/6NhA1352ZuRy4xiU7' %>
+    </div>
   </div>
 </div>

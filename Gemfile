@@ -89,3 +89,5 @@ gem "activeadmin", "~> 4.0.0.beta5"
 gem "devise", "~> 4.9"
 
 gem "kamal", "~> 1.3"
+
+gem "meta-tags", "~> 2.20"

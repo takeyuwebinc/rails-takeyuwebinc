@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TakeyuWeb</title>
+    <%= display_meta_tags site: "タケユー・ウェブ株式会社", description: "Ruby on Rails 受託開発のスペシャリスト", icon: [{ href: "/favicon.ico", size: "64x64" }] %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
+    <%= csrf_meta_tags unless request.session_options[:skip] %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="overflow-x-hidden">
-    <header class="flex justify-between items-center bg-corporate-700 py-2 px-5 fixed top-0 w-screen h-16 z-50 border-b shadow">
+  <body class="overflow-x-hidden bg-slate-50">
+    <header class="flex justify-between items-center bg-corporate-700 py-2 px-5 sm:px-10 fixed top-0 w-screen h-16 z-50 shadow">
       <div>
-        <%= link_to "TakeyuWeb Inc.", root_path, class: "text-2xl font-bold no-underline text-white" %>
+        <%= link_to "タケユー・ウェブ株式会社", root_path, class: "text-xl md:text-2xl font-bold no-underline text-white" %>
       </div>
-      <nav class="flex">
+      <nav class="flex space-x-2 justify-end">
         <%= link_to "お問い合わせ", "https://forms.gle/6NhA1352ZuRy4xiU7", class: "text-white" %>
       </nav>
     </header>
@@ -26,9 +26,11 @@
       </div>
       <footer class="border-t border-gray-900/10 py-3 sm:mt-3 lg:mt-5 shrink-0" aria-labelledby="footer-heading">
         <div class="container mx-auto">
-          <div class="flex flex-col text-center sm:flex-row sm:justify-between sm:text-left">
-            <p class="text-xs leading-5 text-gray-500">© <%= Date.current.year %> TakeyuWeb Inc. All rights reserved.</p>
-            <p class="text-xs leading-5 text-gray-500">Built with Rails <%= Rails.version %>, Ruby <%= RUBY_VERSION %></p>
+          <div class="px-5">
+            <div class="flex flex-col text-center sm:flex-row sm:justify-between sm:text-left px-5 sm:px-10">
+              <p class="text-xs leading-5 text-gray-500">© <%= Date.current.year %> TakeyuWeb Inc. All rights reserved.</p>
+              <p class="text-xs leading-5 text-gray-500">Built with Rails <%= Rails.version %>, Ruby <%= RUBY_VERSION %></p>
+            </div>
           </div>
         </div>
       </footer>
