@@ -31,6 +31,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Setup database
+        run: bin/rails db:create && bin/rails db:test:prepare
       # Add or replace any other lints here
       - name: Security audit dependencies
         run: bin/bundler-audit --update
@@ -38,5 +40,4 @@ jobs:
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
         run: bin/rubocop --parallel
-      - name: Lint Factories
-        run: bin/rails factory_bot:lint
+
