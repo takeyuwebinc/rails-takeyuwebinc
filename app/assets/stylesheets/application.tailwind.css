@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  a { @apply underline hover:no-underline hover:opacity-75 }
+  :root { font-family: "Noto Sans JP", sans-serif; }
 }
 
+@layer base {
+  a { @apply underline hover:no-underline hover:opacity-75 }
+}
