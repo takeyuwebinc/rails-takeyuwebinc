@@ -273,3 +273,9 @@ ActiveAdmin.setup do |config|
   #
   # config.order_clause = MyOrderClause
 end
+
+# ActiveAdmin に追加で読み込む JavaScript を指定する
+ActiveAdmin.after_load do |_app|
+  ActiveAdmin.importmap.pin "trix"
+  ActiveAdmin.importmap.pin "@rails/actiontext", to: "actiontext.esm.js"
+end
