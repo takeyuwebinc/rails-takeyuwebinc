@@ -37,6 +37,12 @@ export class CloudFrontStack extends cdk.Stack {
       region: 'us-east-1',
     });
     const certificate = acm.Certificate.fromCertificateArn(this, 'Certificate', certificateArnReader.getParameterValue());
+    const staticOriginRequestPolicy = new cloudfront.OriginRequestPolicy(this, 'StaticOriginRequestPolicy', {
+      queryStringBehavior: cloudfront.OriginRequestQueryStringBehavior.none(),
+      headerBehavior: cloudfront.OriginRequestHeaderBehavior.allowList('origin', 'viewer-host'),  // viewer-host は ビューワーリクエストイベント関数で設定する
+      cookieBehavior: cloudfront.OriginRequestCookieBehavior.none(),
+      comment: 'Allow origin header',
+    });
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
       domainNames: ['takeyuweb.co.jp', 'www.takeyuweb.co.jp'],
       certificate: certificate,
@@ -50,7 +56,7 @@ export class CloudFrontStack extends cdk.Stack {
           maxTtl: cdk.Duration.seconds(600),
           defaultTtl: cdk.Duration.seconds(2),
           cookieBehavior: cloudfront.CacheCookieBehavior.all(),
-          headerBehavior: cloudfront.CacheHeaderBehavior.allowList('Authorization'),
+          headerBehavior: cloudfront.CacheHeaderBehavior.allowList('Authorization', 'viewer-host'),
           queryStringBehavior: cloudfront.CacheQueryStringBehavior.all(),
           enableAcceptEncodingBrotli: true,
           enableAcceptEncodingGzip: true,
@@ -70,8 +76,40 @@ export class CloudFrontStack extends cdk.Stack {
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
           viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-          cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
-          originRequestPolicy: cloudfront.OriginRequestPolicy.CORS_CUSTOM_ORIGIN,
+          cachePolicy: new cloudfront.CachePolicy(this, 'AssetsCachePolicy', {
+            minTtl: cdk.Duration.seconds(1),
+            maxTtl: cdk.Duration.seconds(31536000),
+            defaultTtl: cdk.Duration.seconds(86400),
+            cookieBehavior: cloudfront.CacheCookieBehavior.none(),
+            headerBehavior: cloudfront.CacheHeaderBehavior.allowList('viewer-host'),
+            queryStringBehavior: cloudfront.CacheQueryStringBehavior.none(),
+            enableAcceptEncodingBrotli: true,
+            enableAcceptEncodingGzip: true,
+          }),
+          originRequestPolicy: staticOriginRequestPolicy,
+          functionAssociations: [
+            {
+              function: viewerHostFunction,
+              eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+            }
+          ],
+        },
+        '/rails/active_storage/disk/*': {
+          origin: new cloudfront_origins.HttpOrigin(origin),
+          allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+          cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
+          viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          cachePolicy: new cloudfront.CachePolicy(this, 'StorageCachePolicy', {
+            minTtl: cdk.Duration.seconds(1),
+            maxTtl: cdk.Duration.seconds(31536000),
+            defaultTtl: cdk.Duration.seconds(86400),
+            cookieBehavior: cloudfront.CacheCookieBehavior.none(),
+            headerBehavior: cloudfront.CacheHeaderBehavior.allowList('viewer-host'),
+            queryStringBehavior: cloudfront.CacheQueryStringBehavior.none(),
+            enableAcceptEncodingBrotli: false,
+            enableAcceptEncodingGzip: false,
+          }),
+          originRequestPolicy: staticOriginRequestPolicy,
           functionAssociations: [
             {
               function: viewerHostFunction,

@@ -1,4 +1,6 @@
 class AnnouncementsController < ApplicationController
+  include ActiveStorage::SetCurrent
+  before_action :set_cache_control
   add_breadcrumb "home", :root_path
 
   def show

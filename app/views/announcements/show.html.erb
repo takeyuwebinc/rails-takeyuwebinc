@@ -13,8 +13,8 @@
   </div>
 
   <% if @announcement.image.attached? %>
-    <div>
-      <%= image_tag @announcement.image.variant(:default), class: "rounded-md" %>
+    <div class="px-5 sm:px-10">
+      <%= image_tag @announcement.image.variant(:default).processed.url, class: "rounded-md" %>
     </div>
   <% end %>
 </article>
