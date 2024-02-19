@@ -36,4 +36,10 @@ ActiveAdmin.register Announcement do
     end
     active_admin_comments_for(resource)
   end
+
+  controller do
+    def find_resource
+      scoped_collection.find_by_slug!(params[:id])
+    end
+  end
 end

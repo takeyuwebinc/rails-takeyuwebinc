@@ -22,9 +22,16 @@
     </header>
     <div class="h-[calc(100vh)] flex flex-col">
       <div class="container mx-auto grow">
-        <main class="px-5 pt-16">
-          <%= yield %>
-        </main>
+        <div class="px-5 pt-16">
+          <% if content_for(:breadcrumbs) %>
+            <div class="text-xs text-gray-500 dark:text-gray-200 pt-10">
+              <%= yield(:breadcrumbs) %>
+            </div>
+          <% end %>
+          <main>
+            <%= yield %>
+          </main>
+        </div>
       </div>
       <footer class="border-t border-gray-900/10 dark:border-gray-100/50 py-3 sm:mt-3 lg:mt-5 shrink-0" aria-labelledby="footer-heading">
         <div class="container mx-auto">

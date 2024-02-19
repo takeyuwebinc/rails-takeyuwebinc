@@ -82,7 +82,7 @@
           <% @announcements.each do |announcement| %>
           <tr class="sm:border-b border-gray-200 dark:text-gray-100">
             <td class="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
-              <div class="font-medium text-gray-900 dark:text-gray-100"><%= announcement.title %></div>
+              <div class="font-medium text-gray-900 dark:text-gray-100"><%= link_to announcement.title, announcement %></div>
               <div class="mt-1 truncate text-gray-500 dark:text-gray-200"><%= announcement.content.to_plain_text %></div>
               <div class="sm:hidden py-5 text-left text-xs text-gray-500 dark:text-gray-200"><%=l announcement.created_at.to_date %></div>
             </td>

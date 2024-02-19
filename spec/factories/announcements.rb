@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :announcement do
+    sequence(:slug) { |i| "announcement-#{i}" }
     title { "MyText" }
     content { "<b>Content</b>" }
 
