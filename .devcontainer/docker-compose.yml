@@ -19,7 +19,6 @@ services:
     hostname: tailscale-app
     env_file: .env.tailscale-app
     environment:
-      - TS_EXTRA_ARGS=--advertise-tags=tag:container
       - TS_STATE_DIR=/var/lib/tailscale
     volumes:
       - tailscale-data:/var/lib/tailscale
