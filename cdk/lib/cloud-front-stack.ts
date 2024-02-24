@@ -21,6 +21,7 @@ export class CloudFrontStack extends cdk.Stack {
     const origin = ssm.StringParameter.valueForStringParameter(this, '/rails-takeyuwebinc/origin');
     const httpOrigin = new cloudfront_origins.HttpOrigin(origin, {
       protocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+      httpPort: 8080,
     });
     const publicHostedZone = route53.PublicHostedZone.fromLookup(
       this,

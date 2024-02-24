@@ -68,7 +68,8 @@ builder:
 #       - data:/data
 
 # Configure custom arguments for Traefik
-# traefik:
+traefik:
+  host_port: 8080
 #   args:
 #     accesslog: true
 #     accesslog.format: json
