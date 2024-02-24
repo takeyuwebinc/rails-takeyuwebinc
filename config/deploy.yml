@@ -26,6 +26,8 @@ registry:
 #   secret:
 #     - RAILS_MASTER_KEY
 env:
+  clear:
+    AWS_REGION: ap-northeast-1
   secret:
     - RAILS_MASTER_KEY
 

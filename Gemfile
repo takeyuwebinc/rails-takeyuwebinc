@@ -93,3 +93,5 @@ gem "kamal", "~> 1.3"
 gem "meta-tags", "~> 2.20"
 
 gem "breadcrumbs_on_rails"
+
+gem "aws-sdk-rails", "~> 3.10"

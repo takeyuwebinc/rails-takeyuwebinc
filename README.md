@@ -42,9 +42,33 @@ $ gem install kamal
 $ kamal deploy
 ```
 
-## CloudFront による公開
+## AWS
+```
+$ cd cdk
+$ yarn
+$ yarn cdk bootstrap
+```
 
-### AWS
+### SES
+```
+$ yarn cdk deploy SesStack
+```
+
+AWSのアクセスキーとシークレットが表示されるので控えて
+
+```
+$ bin/rails credentials:edit --environment production
+```
+
+```
+aws:
+  access_key_id: AKIXXXXXXXXXXXXXXXX
+  secret_access_key: xxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+なお、[SMTP用のキーはこれとは別でcdkでは作成するのが面倒](https://stackoverflow.com/questions/69736117/how-can-i-generate-aws-ses-smtp-credentials-using-the-cdk)なので AWS SDK を使用。
+
+### CloudFront による公開
 
 ```
 $ aws configure
@@ -59,9 +83,6 @@ $ aws ssm put-parameter --name "/rails-takeyuwebinc/origin" --type "String" --va
 CDK実行
 
 ```
-$ cd cdk
-$ yarn
-$ yarn cdk bootstrap
 $ yarn cdk deploy CertificateStack
 $ yarn cdk deploy CloudFrontStack
 ```
