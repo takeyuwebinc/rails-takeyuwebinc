@@ -38,8 +38,5 @@ module TakeyuWeb
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    require "middleware/proxy_viewer_host"
-    config.middleware.insert 0, ProxyViewerHost
   end
 end

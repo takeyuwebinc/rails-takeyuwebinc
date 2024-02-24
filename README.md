@@ -42,31 +42,7 @@ $ gem install kamal
 $ kamal deploy
 ```
 
-## Tailscale Funnel + CloudFront による公開
-### Tailscale Funnel
-1. ACL
-
-```
-  "groups": {
-    "group:funnel":  ["xxxxxxxxxxxxxx@takeyuweb.co.jp"],
-  },
-  "nodeAttrs": [
-    {
-      "target": ["group:funnel"],
-      "attr":   ["funnel"],
-    },
-  ],
-```
-
-2. Server で Funnel を有効にする
-
-```
-$ tailscale funnel --bg http://127.0.0.1:80
-
-Available on the internet: 
-https://xxxxxxx.xxxxxxxx.ts.net/
-|-- proxy http://127.0.0.1:80
-```
+## CloudFront による公開
 
 ### AWS
 
@@ -77,7 +53,7 @@ $ aws configure
 CloudFrontのオリジンを Parameter に入れておく
 
 ```
-$ aws ssm put-parameter --name "/rails-takeyuwebinc/origin" --type "String" --value "xxxxxxx.xxxxxxxx.ts.net" --overwrite
+$ aws ssm put-parameter --name "/rails-takeyuwebinc/origin" --type "String" --value "XXX.XXX.XXX.XXX" --overwrite
 ```
 
 CDK実行

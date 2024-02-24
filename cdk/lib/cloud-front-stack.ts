@@ -19,11 +19,8 @@ export class CloudFrontStack extends cdk.Stack {
     // Funnelのルーティングにホスト名を使用する（SNI）のため。
     // https://github.com/tailscale/tailscale/issues/7758#issuecomment-1493649153
     const origin = ssm.StringParameter.valueForStringParameter(this, '/rails-takeyuwebinc/origin');
-    const viewerHostFunction = new cloudfront.Function(this, 'ViewerHostFunction', {
-      code: cloudfront.FunctionCode.fromFile({
-        filePath: 'src/lambda/viewer_host/index.js',
-      }),
-      runtime: cloudfront.FunctionRuntime.JS_2_0,
+    const httpOrigin = new cloudfront_origins.HttpOrigin(origin, {
+      protocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
     });
     const publicHostedZone = route53.PublicHostedZone.fromLookup(
       this,
@@ -39,7 +36,7 @@ export class CloudFrontStack extends cdk.Stack {
     const certificate = acm.Certificate.fromCertificateArn(this, 'Certificate', certificateArnReader.getParameterValue());
     const staticOriginRequestPolicy = new cloudfront.OriginRequestPolicy(this, 'StaticOriginRequestPolicy', {
       queryStringBehavior: cloudfront.OriginRequestQueryStringBehavior.none(),
-      headerBehavior: cloudfront.OriginRequestHeaderBehavior.allowList('origin', 'viewer-host'),  // viewer-host は ビューワーリクエストイベント関数で設定する
+      headerBehavior: cloudfront.OriginRequestHeaderBehavior.allowList('origin', 'host'),
       cookieBehavior: cloudfront.OriginRequestCookieBehavior.none(),
       comment: 'Allow origin header',
     });
@@ -48,7 +45,7 @@ export class CloudFrontStack extends cdk.Stack {
       certificate: certificate,
       comment: 'takeyuweb.co.jp',
       defaultBehavior: {
-        origin: new cloudfront_origins.HttpOrigin(origin),
+        origin: httpOrigin,
         allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
         cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
         cachePolicy: new cloudfront.CachePolicy(this, 'AppCachePolicy', {
@@ -56,23 +53,18 @@ export class CloudFrontStack extends cdk.Stack {
           maxTtl: cdk.Duration.seconds(600),
           defaultTtl: cdk.Duration.seconds(2),
           cookieBehavior: cloudfront.CacheCookieBehavior.all(),
-          headerBehavior: cloudfront.CacheHeaderBehavior.allowList('Authorization', 'viewer-host'),
+          headerBehavior: cloudfront.CacheHeaderBehavior.allowList('Authorization', 'host'),
           queryStringBehavior: cloudfront.CacheQueryStringBehavior.all(),
           enableAcceptEncodingBrotli: true,
           enableAcceptEncodingGzip: true,
         }),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-        originRequestPolicy: cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
-        functionAssociations: [
-          {
-            function: viewerHostFunction,
-            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
-          }
-        ],
+        originRequestPolicy: cloudfront.OriginRequestPolicy.ALL_VIEWER,
+        functionAssociations: [],
       },
       additionalBehaviors: {
         '/assets/*': {
-          origin: new cloudfront_origins.HttpOrigin(origin),
+          origin: httpOrigin,
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
           viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -87,15 +79,10 @@ export class CloudFrontStack extends cdk.Stack {
             enableAcceptEncodingGzip: true,
           }),
           originRequestPolicy: staticOriginRequestPolicy,
-          functionAssociations: [
-            {
-              function: viewerHostFunction,
-              eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
-            }
-          ],
+          functionAssociations: [],
         },
         '/rails/active_storage/disk/*': {
-          origin: new cloudfront_origins.HttpOrigin(origin),
+          origin: httpOrigin,
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
           viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -110,12 +97,7 @@ export class CloudFrontStack extends cdk.Stack {
             enableAcceptEncodingGzip: false,
           }),
           originRequestPolicy: staticOriginRequestPolicy,
-          functionAssociations: [
-            {
-              function: viewerHostFunction,
-              eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
-            }
-          ],
+          functionAssociations: [],
         },
       },
       minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,

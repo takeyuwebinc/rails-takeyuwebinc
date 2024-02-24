@@ -6,7 +6,7 @@ image: takeyuweb/rails-takeyuwebinc
 
 # Deploy to these servers.
 servers:
-  - barbatus
+  - app
 
 # Credentials for your image host.
 registry:
