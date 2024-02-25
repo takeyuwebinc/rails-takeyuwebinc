@@ -10,26 +10,7 @@ services:
       - awscli-data:/home/vscode/.aws
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
-    depends_on:
-      - tailscale-app
-    network_mode: service:tailscale-app
-
-  tailscale-app:
-    image: tailscale/tailscale:latest
-    hostname: tailscale-app
-    env_file: .env.tailscale-app
-    environment:
-      - TS_STATE_DIR=/var/lib/tailscale
-    volumes:
-      - tailscale-data:/var/lib/tailscale
-      - /dev/net/tun:/dev/net/tun
-    cap_add:
-      - net_admin
-      - sys_module
-    restart: unless-stopped
 
 volumes:
-  tailscale-data:
-    driver: local
   awscli-data:
     driver: local
