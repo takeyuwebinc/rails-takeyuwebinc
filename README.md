@@ -3,6 +3,14 @@
 タケユー・ウェブ株式会社のあれこれ
 コーポレートサイト、ブログ等に活用し、実験場として育てていきたい
 
+## モジュラーモノリス
+Packwerk によるドメイン境界の管理を目指しています。
+
+### 依存関係の確認
+```bash
+$ bin/packwerk check
+```
+
 ## Tailscaleの設定
 1. Serverにインストール
   - [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh)
