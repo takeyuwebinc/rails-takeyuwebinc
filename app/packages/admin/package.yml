@@ -1,4 +1,1 @@
-enforce_dependencies: true
-
-dependencies:
-- app/packages/rails_shims
+enforce_dependencies: false

@@ -25,5 +25,6 @@ PreCommit:
     command:
       - bundle
       - exec
+      - spring
       - packwerk
       - validate
