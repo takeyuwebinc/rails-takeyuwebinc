@@ -62,4 +62,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each, type: :view) do
+    controller.append_view_path(Dir.glob(Rails.root.join("app", "packages", "*", "views")))
+  end
 end
