@@ -23,8 +23,6 @@ PreCommit:
     enabled: true
     on_warn: fail
     command:
-      - bundle
-      - exec
-      - spring
-      - packwerk
+      - ruby
+      - bin/packwerk
       - validate
