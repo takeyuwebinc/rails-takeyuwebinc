@@ -33,7 +33,9 @@
 					"editor.semanticHighlighting.enabled": true, // Enable semantic highlighting
 					"editor.formatOnType": true // Enable formatting while typing
 				},
-				"rubyLsp.rubyVersionManager": "none", // Disable the Ruby version manager
+				"rubyLsp.rubyVersionManager": {
+					"identifier": "none"
+				}, // Disable the Ruby version manager
 				"rubyLsp.formatter": "rubocop", // Use Rubocop as the default formatter
 				"[erb]": {
 					"editor.defaultFormatter": "vscode.html-language-features", // Use the default HTML formatter for ERB files
