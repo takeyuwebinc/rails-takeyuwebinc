@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_04_13_074449) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -84,20 +87,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_13_074449) do
     t.index ["unlock_token"], name: "index_administrators_on_unlock_token", unique: true
   end
 
-  create_table "announcements", force: :cascade do |t|
-    t.text "title", null: false
+  create_table "announcements", comment: "お知らせ", force: :cascade do |t|
+    t.text "title", null: false, comment: "見出し"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug", null: false
     t.index ["slug"], name: "index_announcements_on_slug", unique: true
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "company", null: false
-    t.string "email", null: false
-    t.string "phone", null: false
-    t.text "message", null: false
+  create_table "contacts", comment: "問い合わせ", force: :cascade do |t|
+    t.string "name", null: false, comment: "名前"
+    t.string "company", null: false, comment: "会社名"
+    t.string "email", null: false, comment: "メールアドレス"
+    t.string "phone", null: false, comment: "電話番号"
+    t.text "message", null: false, comment: "問い合わせ内容"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,8 +8,8 @@ gem "rails", "~> 7.1.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.7"
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -101,3 +101,5 @@ gem "sentry-ruby"
 gem "sentry-rails"
 
 gem "rails-i18n", "~> 7.0"
+
+gem "activerecord-nulldb-adapter", "~> 1.0"
