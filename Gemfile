@@ -99,3 +99,5 @@ gem "aws-sdk-rails", "~> 3.11"
 gem "stackprof"
 gem "sentry-ruby"
 gem "sentry-rails"
+
+gem "rails-i18n", "~> 7.0"
