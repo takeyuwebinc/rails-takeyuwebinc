@@ -103,3 +103,7 @@ gem "sentry-rails"
 gem "rails-i18n", "~> 7.0"
 
 gem "activerecord-nulldb-adapter", "~> 1.0"
+
+gem "solid_queue", "~> 0.3.0"
+
+gem "mission_control-jobs", "~> 0.2.1"

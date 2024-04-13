@@ -201,11 +201,11 @@ ActiveAdmin.setup do |config|
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "https://mygreatwebsite.example.com", html_options: { target: :blank }
-  #     end
-  #   end
+  config.namespace :admin do |admin|
+    admin.build_menu :default do |menu|
+      menu.add label: "Mission Control — Jobs", url: -> { Rails.application.routes.url_helpers.mission_control_jobs_path }, html_options: { target: :blank }, priority: 1000
+    end
+  end
 
   # == Download Links
   #
