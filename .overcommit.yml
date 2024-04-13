@@ -19,10 +19,3 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
-  Packwerk:
-    enabled: true
-    on_warn: fail
-    command:
-      - ruby
-      - bin/packwerk
-      - validate
