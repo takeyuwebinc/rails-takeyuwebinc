@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :administrators, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  MissionControl::Jobs.base_controller_class ="AdminController"
+  authenticated :administrator do
+    mount MissionControl::Jobs::Engine, at: "/admin/jobs"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :announcements, only: [ :show ]
   resources :contacts, only: [ :new, :create ]

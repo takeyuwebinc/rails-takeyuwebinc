@@ -1,3 +1,4 @@
 web: rdbg --open --nonstop bin/rails -- server
 tailwind-application: yarn build:css:application --watch
 tailwind-active_admin: yarn build:css:active_admin --watch
+solid_queue: bin/rails solid_queue:start
