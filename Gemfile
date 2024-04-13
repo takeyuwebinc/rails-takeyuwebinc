@@ -82,9 +82,6 @@ group :development do
 
   # A fully configurable and extendable Git hook manager
   gem "overcommit", require: false
-
-  # Rails application preloader
-  gem "spring"
 end
 
 gem "activeadmin", "~> 4.0.0.beta5"
@@ -102,6 +99,3 @@ gem "aws-sdk-rails", "~> 3.11"
 gem "stackprof"
 gem "sentry-ruby"
 gem "sentry-rails"
-
-# Good things come in small packages.
-gem "packwerk"
