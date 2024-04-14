@@ -14,4 +14,18 @@ RSpec.describe Contact, type: :model do
       expect(contact.phone).to eq '00000000000'
     end
   end
+
+  describe '#is_spam?' do
+    it 'returns true if the check field is filled in' do
+      contact = Contact.new
+      contact.check = '1'
+      expect(contact.is_spam?).to be true
+    end
+
+    it 'returns false if the check field is not filled in' do
+      contact = Contact.new
+      contact.check = [ '', nil ].sample
+      expect(contact.is_spam?).to be false
+    end
+  end
 end
