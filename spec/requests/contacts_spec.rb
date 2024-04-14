@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Contacts", type: :request do
+  before do
+    credentials = spy("credentials")
+    allow(credentials).to receive(:dig).with(:mailer, :admin).and_return("admin@test.host")
+    allow(Rails.application).to receive_messages(credentials: credentials)
+  end
+
   describe "GET /new" do
     it "returns http success" do
       get "/contacts/new"
@@ -52,6 +58,22 @@ RSpec.describe "Contacts", type: :request do
         contact = Contact.first
         expect(contact.name).to eq "John Doe"
         expect(contact.files).to be_attached
+      end
+
+      it "sends an email" do
+        blob = ActiveStorage::Blob.create_and_upload!(io: StringIO.new("Hello, World!"), filename: "hello.txt")
+        valid_params = {
+          contact: {
+            name: "John Doe",
+            email: "john@test.host",
+            phone: "1234567890",
+            company: "Test, Inc.",
+            message: "Hello, World!",
+            files: [ blob.signed_id ]
+          }
+        }
+        expect(ContactMailer).to receive(:notify).with(an_instance_of(Contact)).and_call_original
+        post "/contacts", params: valid_params
       end
     end
 

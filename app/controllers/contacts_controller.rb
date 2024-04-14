@@ -9,6 +9,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.is_spam? || @contact.save
+      ContactMailer.notify(@contact).deliver_later if @contact.persisted?
       render :create, status: :created
     else
       render :new, status: :unprocessable_entity
