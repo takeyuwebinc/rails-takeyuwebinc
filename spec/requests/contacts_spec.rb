@@ -21,6 +21,18 @@ RSpec.describe "Contacts", type: :request do
       end
     end
 
+    context "with invalid signature" do
+      it "returns http success" do
+        invalid_params = {
+          contact: {
+            files: [ "invalid" ]
+          }
+        }
+        post "/contacts", params: invalid_params
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
     context "with valid attributes" do
       it "returns http success" do
         blob = ActiveStorage::Blob.create_and_upload!(io: StringIO.new("Hello, World!"), filename: "hello.txt")

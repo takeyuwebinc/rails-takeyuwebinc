@@ -13,6 +13,10 @@ class ContactsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  rescue ActiveSupport::MessageVerifier::InvalidSignature => e
+    @contact = Contact.new(contact_params.except(:files))
+    @contact.errors.add(:files, e.message)
+    render :new, status: :unprocessable_entity
   end
 
   private
