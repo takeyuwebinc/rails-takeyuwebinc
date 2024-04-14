@@ -72,7 +72,9 @@ RSpec.describe "Contacts", type: :request do
             files: [ blob.signed_id ]
           }
         }
-        expect(ContactMailer).to receive(:notify).with(an_instance_of(Contact)).and_call_original
+        mail = spy("mail")
+        expect(mail).to receive(:deliver_later)
+        expect(ContactMailer).to receive(:notify).with(an_instance_of(Contact)).and_return(mail)
         post "/contacts", params: valid_params
       end
     end
