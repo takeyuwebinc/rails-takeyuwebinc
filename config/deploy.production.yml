@@ -1,0 +1,7 @@
+servers:
+  web:
+    - app2
+  job:
+    hosts:
+      - app2
+    cmd: bin/rails solid_queue:start

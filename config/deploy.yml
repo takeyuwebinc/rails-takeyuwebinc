@@ -5,13 +5,7 @@ service: rails-takeyuwebinc
 image: takeyuweb/rails-takeyuwebinc
 
 # Deploy to these servers.
-servers:
-  web:
-    - app2
-  job:
-    hosts:
-      - app2
-    cmd: bin/rails solid_queue:start
+# servers:
 
 # Credentials for your image host.
 registry:

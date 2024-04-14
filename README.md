@@ -21,7 +21,7 @@ $ chown 1000:1000 /srv/kamal/rails-takeyuwebinc-storage
 ### DevContainer
 ```
 $ gem install kamal
-$ kamal deploy
+$ bin/kamal deploy -d production
 ```
 
 ## AWS
