@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   authenticated :administrator do
     mount MissionControl::Jobs::Engine, at: "/admin/jobs"
   end
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :announcements, only: [ :show ]
   resources :contacts, only: [ :new, :create ]

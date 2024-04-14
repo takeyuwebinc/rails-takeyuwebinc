@@ -82,6 +82,8 @@ group :development do
 
   # A fully configurable and extendable Git hook manager
   gem "overcommit", require: false
+
+  gem "letter_opener_web"
 end
 
 gem "activeadmin", "~> 4.0.0.beta5"
