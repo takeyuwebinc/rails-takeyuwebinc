@@ -42,5 +42,25 @@ RSpec.describe "Contacts", type: :request do
         expect(contact.files).to be_attached
       end
     end
+
+    # ハニーポットフィールドへの入力がある場合、成功を返すように見せかけるが、保存されないことを確認する
+    context "with spam" do
+      it "returns http success" do
+        valid_params = {
+          contact: {
+            name: "John Doe",
+            email: "john@test.host",
+            phone: "1234567890",
+            company: "Test, Inc.",
+            message: "Hello, World!",
+            files: [],
+            check: "1"
+          }
+        }
+        post "/contacts", params: valid_params
+        expect(response).to have_http_status(:success)
+        expect(Contact.count).to eq 0
+      end
+    end
   end
 end
