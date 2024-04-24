@@ -38,8 +38,8 @@ env:
 # Configure builder setup.
 builder:
   multiarch: false
-#   args:
-#     RUBY_VERSION: 3.2.0
+  args:
+    RUBY_VERSION: 3.3.1
 #   secrets:
 #     - GITHUB_TOKEN
 #   remote:
