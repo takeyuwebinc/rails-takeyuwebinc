@@ -8,6 +8,11 @@
     <h2 class="leading-5 text-center sm:text-left">私たちは Ruby コミュニティを応援しています <i class="fa-regular fa-gem text-ruby"></i></h2>
     <div class="flex space-y-3 sm:space-y-0 flex-col sm:flex-row sm:space-x-3 justify-start pt-5 w-full">
       <div class="text-center sm:text-left">
+        <%= link_to 'https://www.ruby.or.jp/ja/' do %>
+          <%= image_tag "RAsponsor-s.png", alt: "Ruby Association", class: "h-28 w-auto inline-block border-2 border-white" %>
+        <% end %>
+      </div>
+      <div class="text-center sm:text-left">
         <%= link_to 'https://rubykaigi.org/2024/' do %>
           <%= image_tag "rubykaigi2024.png", alt: "RubyKaigi 2024@NAHA,OKINAWA", class: "h-28 w-auto inline-block border-2 border-white" %>
         <% end %>
