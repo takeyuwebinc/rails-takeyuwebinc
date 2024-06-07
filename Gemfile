@@ -94,7 +94,7 @@ gem "meta-tags", "~> 2.20"
 
 gem "breadcrumbs_on_rails"
 
-gem "aws-sdk-rails", "~> 3.11"
+gem "aws-sdk-rails", "~> 3.12"
 
 gem "stackprof"
 gem "sentry-ruby"
