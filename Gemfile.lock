@@ -50,8 +50,9 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    activeadmin (4.0.0.beta5)
+    activeadmin (4.0.0.beta7)
       arbre (~> 2.0)
+      csv
       formtastic (>= 3.1)
       formtastic_i18n (>= 0.4)
       inherited_resources (~> 1.7)
@@ -147,6 +148,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
+    csv (3.3.0)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -466,7 +468,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activeadmin (~> 4.0.0.beta5)
+  activeadmin (~> 4.0.0.beta7)
   activerecord-nulldb-adapter (~> 1.0)
   aws-sdk-rails (~> 3.12)
   bootsnap

@@ -84,7 +84,7 @@ group :development do
   gem "letter_opener_web"
 end
 
-gem "activeadmin", "~> 4.0.0.beta5"
+gem "activeadmin", "~> 4.0.0.beta7"
 
 gem "devise", "~> 4.9"
 
