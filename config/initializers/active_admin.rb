@@ -275,7 +275,20 @@ ActiveAdmin.setup do |config|
 end
 
 # ActiveAdmin に追加で読み込む JavaScript を指定する
-ActiveAdmin.after_load do |_app|
+ActiveAdmin.after_load do
   ActiveAdmin.importmap.pin "trix"
   ActiveAdmin.importmap.pin "@rails/actiontext", to: "actiontext.esm.js"
+  ActiveAdmin.importmap.pin "@hotwired/stimulus", to: "stimulus.min.js"
+  ActiveAdmin.importmap.pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
+  ActiveAdmin.importmap.pin "admin/application"
+  ActiveAdmin.importmap.pin_all_from "app/javascript/admin/controllers", under: "admin/controllers"
+  # https://github.com/activeadmin/activeadmin/blob/c4b7d0ae139ee7f7f9764f951dcde1e13a1f9970/lib/active_admin/engine.rb#L30
+  # app/javascript/admin 以下のファイルに変更があったとき ActiveAdmin.importmap のキャッシュを破棄する
+  if Rails.application.config.importmap.sweep_cache
+    ActiveAdmin.importmap.cache_sweeper(watches: [
+      ActiveAdmin::Engine.root.join("app/javascript"),
+      Rails.root.join("app/assets/javascripts/admin_admin.js"),
+      Rails.root.join("app/javascript/admin")
+    ])
+  end
 end

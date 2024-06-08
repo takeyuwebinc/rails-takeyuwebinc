@@ -32,12 +32,10 @@ ActiveAdmin.register Page do
     active_admin_comments_for(resource)
   end
 
-  form do |f|
-    f.inputs do
-      f.input :path, as: :string
-      f.input :title, as: :string
-      f.input :markdown, as: :text
-    end
-    f.actions
+  form partial: "form"
+
+  collection_action :preview, method: :post do
+    @page = Page.new(permitted_params[:page])
+    render plain: @page.to_html
   end
 end
