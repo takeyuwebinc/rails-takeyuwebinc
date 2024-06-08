@@ -22,7 +22,8 @@
 			"extensions": [
 				"shopify.ruby-lsp",
 				"KoichiSasada.vscode-rdbg",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"github.copilot-chat"
 			],
 			"settings": {
 				"[ruby]": {
