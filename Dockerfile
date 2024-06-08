@@ -50,8 +50,12 @@ RUN SECRET_KEY_BASE_DUMMY=1 DB_ADAPTER=nulldb ./bin/rails assets:precompile
 FROM base
 
 # Install packages needed for deployment
+# CMSページのTailwindCSS実行に必要なのでnodejsも追加
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+    apt-get install --no-install-recommends -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash -
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y libvips postgresql-client nodejs yarn && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
