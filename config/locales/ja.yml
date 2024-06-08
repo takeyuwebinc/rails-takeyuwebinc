@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       contact: お問い合わせ
+      page: ページ
     attributes:
       contact:
         name: お名前
@@ -10,3 +11,8 @@ ja:
         phone: 電話番号
         message: お問い合わせ内容
         files: 添付ファイル
+      page:
+        path: URLパス
+        title: ページタイトル
+        markdown: Markdown
+        built_html: 生成されたHTML

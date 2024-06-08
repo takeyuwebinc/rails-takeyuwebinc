@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  add_breadcrumb "home", :root_path
+  add_breadcrumb "home", "/"
   add_breadcrumb "お問い合わせ", :new_contact_path
 
   def new

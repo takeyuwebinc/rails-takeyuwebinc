@@ -24,6 +24,11 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
+# 動的ページ用のTailwindCSSのビルドファイルを無視する。ただし、ディレクトリは残す。
+/tmp/pages/*
+!/tmp/pages/
+!/tmp/pages/.keep
+
 # Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
 !/storage/.keep

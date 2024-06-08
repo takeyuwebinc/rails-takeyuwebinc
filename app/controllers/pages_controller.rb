@@ -2,6 +2,11 @@ class PagesController < ApplicationController
   include EnableCacheControlPublic
 
   def index
-    @announcements = Announcement.order(created_at: :desc).limit(5)
+    @page = Page.find_path!("")
+    render :show
+  end
+
+  def show
+    @page = Page.find_path!(params[:path])
   end
 end
