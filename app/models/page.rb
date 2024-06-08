@@ -60,7 +60,9 @@ class Page < ApplicationRecord
         output_path = File.join(tmp_dir, "output.css")
         tailwind_config_path = File.join(tmp_dir, "tailwind.config.js")
 
-        full_document = ApplicationController.renderer.render_to_string(inline: full_document, layout: false) rescue full_document
+        full_document = ActiveRecord::Base.connected_to(role: :reading, prevent_writes: true) do
+          ApplicationController.renderer.render_to_string(inline: full_document, layout: false)
+        end
         File.write(html_path, full_document)
         File.write(input_path, <<~CSS)
           @tailwind base;

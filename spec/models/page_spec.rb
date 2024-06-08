@@ -34,5 +34,11 @@ RSpec.describe Page, type: :model do
       expect(built_html).to include(%Q(<h1 class="text-4xl font-bold mt-4 mb-2">Hello</h1>))
       expect(built_html).to include(%Q(! tailwindcss))
     end
+
+    it do
+      announcement = create(:announcement)
+      page = build(:page, markdown: "<div><%= Announcement.destroy_all %></div>")
+      expect { page.to_html }.to raise_error(ActionView::Template::Error, /Write query attempted/)
+    end
   end
 end
