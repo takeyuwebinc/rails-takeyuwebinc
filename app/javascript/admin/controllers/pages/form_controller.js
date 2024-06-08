@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["preview"];
 
-  connect() {
-    this.preview();
-  }
-
   preview() {
     const formData = new FormData(this.element.querySelector("form"));
     formData.append("_method", "POST");
@@ -16,8 +12,10 @@ export default class extends Controller {
     })
       .then((response) => response.text())
       .then((html) => {
-        console.log(html);
-        this.previewTarget.innerHTML = html;
+        const previewWindow = window.open("", "preview");
+        previewWindow.document.open();
+        previewWindow.document.write(html);
+        previewWindow.document.close();
       });
   }
 }

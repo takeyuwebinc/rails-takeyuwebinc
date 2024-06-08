@@ -1,17 +1,12 @@
 <div data-controller="pages--form">
   <%= semantic_form_for [:admin, @page], builder: ActiveAdmin::FormBuilder do |f| %>
-    <div class="flex gap-2">
-      <div class="flex-grow">
-        <%= f.inputs do %>
-          <%= f.input :path, as: :string %>
-          <%= f.input :title, as: :string %>
-          <%= f.input :markdown, as: :text %>
-        <% end %>
-      </div>
-      <div class="flex-grow">
-        <a href="javascript: void(0)" data-action="click->pages--form#preview">Update Preview</a>
-        <div data-pages--form-target="preview" class="border p-3 w-full"></div>
-      </div>
+    <%= f.inputs do %>
+      <%= f.input :path, as: :string %>
+      <%= f.input :title, as: :string %>
+      <%= f.input :markdown, as: :text %>
+    <% end %>
+    <div class="py-3">
+      <a href="javascript: void(0)" data-action="click->pages--form#preview">Open Preview</a>
     </div>
     <%= f.actions do %>
       <%= f.action :submit %>
