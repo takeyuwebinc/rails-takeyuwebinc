@@ -38,21 +38,21 @@ class Page < ApplicationRecord
 
     # h1 〜 h6 タグを生成する
     def header(text, header_level)
-      text_size = case header_level
+      header_class = case header_level
       when 1
-        "text-4xl"
+        "text-3xl font-bold mb-2 border-b-2 border-gray-300 dark:border-gray-700 pb-2"
       when 2
-        "text-3xl"
+        "text-2xl font-bold mt-9 mb-2 border-b border-gray-300 dark:border-gray-700 pb-2"
       when 3
-        "text-2xl"
+        "text-xl font-bold mt-9 mb-2"
       when 4
-        "text-xl"
+        "text-lg font-bold mt-9 mb-2"
       when 5
-        "text-lg"
+        "text-base font-bold mt-9 mb-2"
       when 6
-        "text-base"
+        "text-base font-bold"
       end
-      %Q(<h#{header_level} class="#{text_size} font-bold mt-4 mb-2">#{text}</h#{header_level}>)
+      %Q(<h#{header_level} class="#{header_class}">#{text}</h#{header_level}>)
     end
 
     def postprocess(full_document)
