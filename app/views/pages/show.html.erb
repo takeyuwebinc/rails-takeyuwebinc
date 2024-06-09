@@ -1,4 +1,9 @@
 <% title @page.title %>
+<% content_for :breadcrumbs do %>
+  <div class="px-5 sm:px-10">
+    <%= render_breadcrumbs %>
+  </div>
+<% end %>
 
 <div class="w-full pt-10 pb-20 px-5 sm:px-10">
   <%= @page.to_html.html_safe %>
