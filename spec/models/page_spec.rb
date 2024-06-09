@@ -40,5 +40,12 @@ RSpec.describe Page, type: :model do
       page = build(:page, markdown: "<div><%= Announcement.destroy_all %></div>")
       expect { page.to_html }.to raise_error(ActionView::Template::Error, /Write query attempted/)
     end
+
+    it do
+      page = create(:page, path: "/index.html", markdown: "# Hello")
+      built_html = page.to_html(layout: true)
+      expect(built_html).to include(%Q(<script type="module">import "application"</script>))
+      expect(built_html).to include(%Q(<h1 class="text-4xl font-bold mt-4 mb-2">Hello</h1>))
+    end
   end
 end

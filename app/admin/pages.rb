@@ -36,6 +36,6 @@ ActiveAdmin.register Page do
 
   collection_action :preview, method: :post do
     @page = Page.new(permitted_params[:page])
-    render plain: @page.to_html
+    render plain: @page.to_html(layout: true)
   end
 end

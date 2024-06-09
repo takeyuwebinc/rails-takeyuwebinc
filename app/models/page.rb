@@ -31,6 +31,11 @@ class Page < ApplicationRecord
   end
 
   class PageRender < Redcarpet::Render::HTML
+    def initialize(options = {})
+      @layout = !!options.delete(:layout)
+      super(options)
+    end
+
     # h1 〜 h6 タグを生成する
     def header(text, header_level)
       text_size = case header_level
@@ -61,7 +66,7 @@ class Page < ApplicationRecord
         tailwind_config_path = File.join(tmp_dir, "tailwind.config.js")
 
         full_document = ActiveRecord::Base.connected_to(role: :reading, prevent_writes: true) do
-          ApplicationController.renderer.render_to_string(inline: full_document, layout: false)
+          ApplicationController.renderer.render_to_string(inline: full_document, layout: @layout)
         end
         File.write(html_path, full_document)
         File.write(input_path, <<~CSS)
@@ -126,11 +131,11 @@ class Page < ApplicationRecord
     end
   end
 
-  def self.render_markdown(markdown)
-    Redcarpet::Markdown.new(PageRender, autolink: true, tables: true).render(markdown)
+  def self.render_markdown(markdown, layout: false)
+    Redcarpet::Markdown.new(PageRender.new(layout: layout), autolink: true, tables: true).render(markdown)
   end
 
-  def to_html
-    markdown.present? ? self.class.render_markdown(markdown) : ""
+  def to_html(layout: false)
+    markdown.present? ? self.class.render_markdown(markdown, layout: layout) : ""
   end
 end
