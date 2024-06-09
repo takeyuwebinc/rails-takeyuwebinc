@@ -9,7 +9,7 @@ ja:
         company: 会社名
         email: メールアドレス
         phone: 電話番号
-        message: お問い合わせ内容
+        message: 内容
         files: 添付ファイル
       page:
         path: URLパス
