@@ -25,6 +25,7 @@ class Page < ApplicationRecord
   class PageRender < Redcarpet::Render::HTML
     def initialize(options = {})
       @layout = !!options.delete(:layout)
+      @title = options.delete(:title).to_s.presence
       super(options)
     end
 
@@ -48,7 +49,18 @@ class Page < ApplicationRecord
     end
 
     def postprocess(full_document)
-      full_document = %Q(<div class="page text-gray-900 dark:text-gray-100">#{full_document}</div>)
+      full_document = %Q(
+        <% title #{@title.inspect} %>
+        <% content_for :breadcrumbs do %>
+          <div class="px-5 sm:px-10">
+            <%= render_breadcrumbs %>
+          </div>
+        <% end %>
+
+        <div class="w-full pt-10 pb-20 px-5 sm:px-10">
+          <div class="page text-gray-900 dark:text-gray-100">#{full_document}</div>
+        </div>
+      )
       tailwindcss_output = nil
 
       Dir.mktmpdir(nil, Rails.root.join("tmp", "pages")) do |tmp_dir|
@@ -58,7 +70,7 @@ class Page < ApplicationRecord
         tailwind_config_path = File.join(tmp_dir, "tailwind.config.js")
 
         full_document = ActiveRecord::Base.connected_to(role: :reading, prevent_writes: true) do
-          ApplicationController.renderer.render_to_string(inline: full_document, layout: @layout)
+          PagesController.renderer.render_to_string(inline: full_document, layout: @layout)
         end
         File.write(html_path, full_document)
         File.write(input_path, <<~CSS)
@@ -116,22 +128,15 @@ class Page < ApplicationRecord
         tailwindcss_output = File.read(output_path)
       end
 
-      <<~HTML
-        <style>
-          #{tailwindcss_output}
-        </style>
-        <div>
-          #{full_document}
-        </div>
-      HTML
+      full_document.sub(%Q(<link rel="stylesheet"), "<style>#{tailwindcss_output}</style><link rel=\"stylesheet\"")
     end
   end
 
-  def self.render_markdown(markdown, layout: false)
-    Redcarpet::Markdown.new(PageRender.new(layout: layout), autolink: true, tables: true).render(markdown)
+  def self.render_markdown(markdown, layout: false, title: nil)
+    Redcarpet::Markdown.new(PageRender.new(layout: layout, title: title), autolink: true, tables: true).render(markdown)
   end
 
   def to_html(layout: false)
-    markdown.present? ? self.class.render_markdown(markdown, layout: layout) : ""
+    markdown.present? ? self.class.render_markdown(markdown, layout: layout, title: title) : ""
   end
 end
