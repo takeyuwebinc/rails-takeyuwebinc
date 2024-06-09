@@ -128,7 +128,7 @@ class Page < ApplicationRecord
         tailwindcss_output = File.read(output_path)
       end
 
-      full_document.sub(%Q(<link rel="stylesheet"), "<style>#{tailwindcss_output}</style><link rel=\"stylesheet\"")
+      full_document.sub(%Q(<link rel="stylesheet"), %Q(<style data-turbo-track="reload">#{tailwindcss_output}</style><link rel="stylesheet"))
     end
   end
 
