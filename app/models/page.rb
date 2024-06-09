@@ -105,7 +105,10 @@ class Page < ApplicationRecord
               require('@tailwindcss/aspect-ratio'),
               require('@tailwindcss/typography'),
               require('@tailwindcss/container-queries'),
-            ]
+            ],
+            corePlugins: {
+              preflight: false,
+            }
           }
         JS
         system("npx tailwindcss -c #{tailwind_config_path} -i #{input_path} -o #{output_path} 2> /dev/null 1> /dev/null", { chdir: Rails.root })
