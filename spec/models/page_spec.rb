@@ -32,7 +32,7 @@ RSpec.describe Page, type: :model do
       page = create(:page, path: "/", markdown: "# Hello")
       built_html = page.to_html
       expect(built_html).to include(%Q(<div class="text-gray-900 dark:text-gray-100">))
-      expect(built_html).to include(%Q(<h1 class="text-4xl font-bold mt-4 mb-2">Hello</h1>))
+      expect(built_html).to include(%Q(<h1 class="text-3xl font-bold mb-2 border-b-2 border-gray-300 dark:border-gray-700 pb-2">Hello</h1>))
       expect(built_html).to include(%Q(! tailwindcss))
     end
 
@@ -46,7 +46,7 @@ RSpec.describe Page, type: :model do
       page = create(:page, path: "/", markdown: "# Hello")
       built_html = page.to_html(layout: true)
       expect(built_html).to include(%Q(<script type="module">import "application"</script>))
-      expect(built_html).to include(%Q(<h1 class="text-4xl font-bold mt-4 mb-2">Hello</h1>))
+      expect(built_html).to include(%Q(<h1 class="text-3xl font-bold mb-2 border-b-2 border-gray-300 dark:border-gray-700 pb-2">Hello</h1>))
     end
   end
 end
