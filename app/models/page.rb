@@ -48,7 +48,7 @@ class Page < ApplicationRecord
     end
 
     def postprocess(full_document)
-      full_document = %Q(<div class="text-gray-900 dark:text-gray-100">#{full_document}</div>)
+      full_document = %Q(<div class="page">#{full_document}</div>)
       tailwindcss_output = nil
 
       Dir.mktmpdir(nil, Rails.root.join("tmp", "pages")) do |tmp_dir|
@@ -72,6 +72,7 @@ class Page < ApplicationRecord
 
           @layer base {
             a { @apply underline hover:no-underline hover:opacity-75 }
+            .page p { line-height: 1.75; }
           }
         CSS
         File.write(tailwind_config_path, <<~JS)
