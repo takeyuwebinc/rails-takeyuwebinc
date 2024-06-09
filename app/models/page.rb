@@ -9,17 +9,9 @@ class Page < ApplicationRecord
   end
 
   # pathを整形する
-  # 先頭は / から始まる
-  # 末尾にファイル名を含まない場合 index.html を追加する
-  DIRECTORY_INDEX = "index.html"
+  # 先頭は / から始まり、末尾は / で終わる
   def self.normalize_path(path)
-    parts = path.split("/").reject(&:empty?)
-    if parts.empty?
-      parts.push(DIRECTORY_INDEX)
-    else
-      parts.push("index.html") unless parts.last.match?(%r{\.[^\.+]})
-    end
-    "/" + parts.join("/")
+    "/" + path.split("/").reject(&:empty?).push("").join("/")
   end
 
   def self.find_path!(path)
