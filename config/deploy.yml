@@ -39,7 +39,7 @@ env:
 builder:
   multiarch: false
   args:
-    RUBY_VERSION: 3.3.2
+    RUBY_VERSION: 3.3.3
 #   secrets:
 #     - GITHUB_TOKEN
 #   remote:
