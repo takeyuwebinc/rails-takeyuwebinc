@@ -1,0 +1,16 @@
+<div data-controller="pages--form">
+  <%= semantic_form_for [:admin, @page], builder: ActiveAdmin::FormBuilder do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :path, as: :string %>
+      <%= f.input :title, as: :string %>
+      <%= f.input :markdown, as: :text %>
+    <% end %>
+    <div class="py-3">
+      <a href="javascript: void(0)" data-action="click->pages--form#preview">Open Preview</a>
+    </div>
+    <%= f.actions do %>
+      <%= f.action :submit %>
+      <%= f.cancel_link(action: "index") %>
+    <% end %>
+  <% end %>
+</div>

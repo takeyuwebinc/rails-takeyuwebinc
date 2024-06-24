@@ -18,4 +18,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#index"
+
+  # すべてのgetリクエストを pages#show にルーティングする
+  get "*path" => "pages#show", constraints: ->(request) do
+    !request.path.start_with?("/rails/") && !request.path.start_with?(ActiveStorage.routes_prefix)
+  end
 end

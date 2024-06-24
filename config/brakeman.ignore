@@ -1,0 +1,29 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "9ae301a9328c7e5dfd900893b45dd4a064d2beb5213cc58f6c3acbd6013f14d1",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "app/models/page.rb",
+      "line": 127,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"npx tailwindcss -c #{File.join(tmp_dir, \"tailwind.config.js\")} -i #{File.join(tmp_dir, \"input.css\")} -o #{File.join(tmp_dir, \"output.css\")} 2> /dev/null 1> /dev/null\", :chdir => Rails.root)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PageRender",
+        "method": "postprocess"
+      },
+      "user_input": "File.join(tmp_dir, \"tailwind.config.js\")",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    }
+  ],
+  "updated": "2024-06-24 06:30:27 +0000",
+  "brakeman_version": "6.1.2"
+}

@@ -2,7 +2,7 @@ class AnnouncementsController < ApplicationController
   include EnableCacheControlPublic
   include ActiveStorage::SetCurrent
 
-  add_breadcrumb "home", :root_path
+  add_breadcrumb "home", "/"
 
   def show
     @announcement = Announcement.find_by_slug!(params[:id])
