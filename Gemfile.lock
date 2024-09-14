@@ -243,6 +243,7 @@ GEM
       letter_opener (~> 1.7)
       railties (>= 5.2)
       rexml
+    logger (1.6.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -291,7 +292,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
-    prism (0.24.0)
+    prism (1.0.0)
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -350,6 +351,8 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    rbs (3.5.3)
+      logger
     rdoc (6.7.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
@@ -407,16 +410,13 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
-    ruby-lsp (0.14.3)
+    ruby-lsp (0.17.17)
       language_server-protocol (~> 3.17.0)
-      prism (>= 0.22.0, < 0.25)
+      prism (~> 1.0)
+      rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.2)
-      actionpack (>= 6.0)
-      activerecord (>= 6.0)
-      railties (>= 6.0)
-      ruby-lsp (>= 0.14.2, < 0.15.0)
-      sorbet-runtime (>= 0.5.9897)
+    ruby-lsp-rails (0.3.14)
+      ruby-lsp (>= 0.17.12, < 0.18.0)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.0)
       ffi (~> 1.12)
@@ -433,7 +433,7 @@ GEM
       concurrent-ruby (~> 1.2.2)
       fugit (~> 1.9.0)
       railties (>= 7.1)
-    sorbet-runtime (0.5.11261)
+    sorbet-runtime (0.5.11558)
     sshkit (1.22.2)
       base64
       mutex_m
