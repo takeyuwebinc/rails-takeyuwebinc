@@ -4,6 +4,13 @@
       <%= f.input :path, as: :string %>
       <%= f.input :title, as: :string %>
       <%= f.input :markdown, as: :text %>
+      <%= f.input :assets, as: :file, input_html: { multiple: true } %>
+      <% f.object.assets.each do |asset| %>
+        <div>
+          <%= url_for(asset) %>
+        </div>
+        <%= f.input :assets, as: :hidden, input_html: { multiple: true, value: asset.signed_id } %>
+      <% end %>
     <% end %>
     <div class="py-3">
       <a href="javascript: void(0)" data-action="click->pages--form#preview">Open Preview</a>

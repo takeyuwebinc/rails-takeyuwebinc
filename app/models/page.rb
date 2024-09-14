@@ -1,6 +1,7 @@
 require "tmpdir"
 
 class Page < ApplicationRecord
+  has_many_attached :assets
   validates :path, presence: true, uniqueness: { case_sensitive: false }
   validates :title, presence: true
 

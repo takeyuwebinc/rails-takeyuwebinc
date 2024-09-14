@@ -1,5 +1,5 @@
 ActiveAdmin.register Page do
-  permit_params :path, :title, :markdown
+  permit_params :path, :title, :markdown, assets: []
 
   index do
     selectable_column
