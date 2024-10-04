@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3"
+gem "rails", "~> 7.2.1"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
@@ -103,8 +103,6 @@ gem "sentry-ruby"
 gem "sentry-rails"
 
 gem "rails-i18n", "~> 7.0"
-
-gem "activerecord-nulldb-adapter", "~> 1.0"
 
 gem "solid_queue", "~> 0.3.0"
 

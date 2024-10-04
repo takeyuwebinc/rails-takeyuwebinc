@@ -30,8 +30,6 @@ jobs:
           bundler-cache: true
       - name: Build assets
         run: bin/rails assets:precompile
-        env:
-          DB_ADAPTER: nulldb
       - name: Setup database
         run: bin/rails db:create && bin/rails db:test:prepare
         env:
