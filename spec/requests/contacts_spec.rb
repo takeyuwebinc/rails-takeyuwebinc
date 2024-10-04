@@ -23,7 +23,7 @@ RSpec.describe "Contacts", type: :request do
           }
         }
         post "/contacts", params: invalid_params
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 
@@ -35,7 +35,7 @@ RSpec.describe "Contacts", type: :request do
           }
         }
         post "/contacts", params: invalid_params
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 
