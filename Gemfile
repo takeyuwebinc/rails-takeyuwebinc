@@ -70,6 +70,7 @@ group :development do
 
   # A Ruby LSP extension for Rails
   gem "ruby-lsp-rails"
+  gem "ruby-lsp-rspec", require: false
 
   # Omakase Ruby styling for Rails
   gem "rubocop-rails-omakase", require: false
