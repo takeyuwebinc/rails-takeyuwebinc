@@ -1,0 +1,29 @@
+<% if @url %>
+  <article class="group relative">
+    <div class="aspect-h-3 aspect-w-4 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+      <img src="<%= @image %>" alt="<%= @title %>" class="h-full w-full object-cover object-center">
+    </div>
+    <div class="mt-4 text-center">
+      <h3 class="text-lg text-black">
+        <a href="<%= @url %>">
+          <span aria-hidden="true" class="absolute inset-0"></span>
+          <%= @title %>
+        </a>
+      </h3>
+      <p class="text-sm text-gray-500"><%= @outline %></p>
+    </div>
+  </article>
+<% else %>
+  <article class="relative">
+    <div class="aspect-h-3 aspect-w-4 w-full overflow-hidden rounded-md bg-gray-200">
+      <img src="<%= @image %>" alt="<%= @title %>" class="h-full w-full object-cover object-center">
+    </div>
+    <div class="mt-4 text-center">
+      <h3 class="text-lg text-black">
+        <span aria-hidden="true" class="absolute inset-0"></span>
+        <%= @title %>
+      </h3>
+      <p class="text-sm text-gray-500"><%= @outline %></p>
+    </div>
+  </article>
+<% end %>

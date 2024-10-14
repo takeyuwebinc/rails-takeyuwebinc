@@ -5,7 +5,8 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    './app/components/**/*.{erb,haml,html,slim}'
   ],
   theme: {
     extend: {
@@ -13,16 +14,17 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'corporate-50': '#0ab360',
-        'corporate-100': '#b0ffcd',
-        'corporate-200': '#80ffb3',
-        'corporate-300': '#50ff9b',
-        'corporate-400': '#28ff88',
-        'corporate-500': '#18e676',
-        'corporate-600': '#0ab360',
-        'corporate-700': '#008048',
-        'corporate-800': '#004d25',
-        'corporate-900': '#001b07',
+        'corporate-50': '#f4fbea',
+        'corporate-100': '#e7f5d2',
+        'corporate-200': '#ceecaa',
+        'corporate-300': '#afde78',
+        'corporate-400': '#89ca42',
+        'corporate-500': '#72b32f',
+        'corporate-600': '#568e22',
+        'corporate-700': '#436d1e',
+        'corporate-800': '#38571d',
+        'corporate-900': '#314a1d',
+        'corporate-950': '#17280b',
         'ruby': '#cc342d',
       },
     },

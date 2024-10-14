@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_04_050612) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_14_113028) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,17 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_04_050612) do
     t.datetime "updated_at", null: false
     t.string "slug", null: false
     t.index ["slug"], name: "index_announcements_on_slug", unique: true
+  end
+
+  create_table "clients", comment: "お客様", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "name", null: false, comment: "名前"
+    t.string "kana", null: false, comment: "カナ"
+    t.string "website", comment: "ウェブサイトURL"
+    t.boolean "private", default: false, null: false, comment: "非公開"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_clients_on_slug", unique: true
   end
 
   create_table "contacts", comment: "問い合わせ", force: :cascade do |t|
@@ -217,6 +228,27 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_04_050612) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  create_table "work_styles", comment: "働き方", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "title", null: false, comment: "見出し"
+    t.integer "position", default: 0, null: false, comment: "表示順（降順）"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_work_styles_on_slug", unique: true
+  end
+
+  create_table "works", comment: "案件", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "title", null: false, comment: "案件名"
+    t.bigint "client_id", null: false, comment: "お客様"
+    t.text "points", comment: "ここがポイント（改行区切り）"
+    t.integer "position", default: 0, null: false, comment: "表示順（降順）"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_works_on_client_id"
+    t.index ["slug"], name: "index_works_on_slug", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
@@ -225,4 +257,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_04_050612) do
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_recurring_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "works", "clients"
 end

@@ -17,10 +17,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "pages#index"
+  root "home#index"
 
-  # すべてのgetリクエストを pages#show にルーティングする
-  get "*path" => "pages#show", constraints: ->(request) do
-    !request.path.start_with?("/rails/") && !request.path.start_with?(ActiveStorage.routes_prefix)
-  end
+  resources :services, only: [ :index, :show ]
+  resources :works, only: [ :index, :show ]
+  resources :jobs, only: [ :index, :show ]
 end

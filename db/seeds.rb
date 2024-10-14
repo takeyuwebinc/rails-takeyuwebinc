@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 if Rails.env.development?
-    Administrator.create_or_find_by(email: 'admin@example.com') do |admin|
+  Administrator.create_or_find_by(email: 'admin@example.com') do |admin|
     admin.assign_attributes(
       password: 'password',
       password_confirmation: 'password'
@@ -165,6 +165,70 @@ if Rails.env.development?
         ## 会社概要
         会社概要が入ります。
       MARKDOWN
+    )
+
+    Client.insert_all([
+      {
+        slug: 'takeyouweb',
+        name: '株式会社テイクユーウェブ',
+        kana: 'テイクユーウェブ',
+        website: 'https://takeyouweb.com',
+        private: false
+      },
+      {
+        slug: 'abc',
+        name: 'ABC株式会社',
+        kana: 'エービーシー',
+        website: nil,
+        private: true
+      }
+    ], unique_by: :slug)
+    Work.create!(
+      slug: 'takeyouweb-website',
+      title: 'テイクユーウェブのウェブサイト',
+      client_id: Client.find_by(slug: 'takeyouweb').id,
+      points: [
+        'ここがポイント1',
+        'ここがポイント2',
+        'ここがポイント3'
+      ].join("\n"),
+      image: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/test.jpg'), 'image/jpeg', true, original_filename: 'test.jpg'),
+      description: '<p>ウェブサイトをリニューアル</p>',
+      content: "<p>説明が入ります。テイクユーウェブのウェブサイトをリニューアルしました。</p>",
+    )
+    Work.create!(
+      slug: 'video-streaming',
+      title: 'ライブ配信プラットホーム',
+      client_id: Client.find_by(slug: 'abc').id,
+      points: [
+        'WebRTCを利用したライブ配信',
+        'HLSを利用したライブ配信の低遅延大規模配信',
+        'HLSを利用したVOD配信'
+      ].join("\n"),
+      image: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/test.jpg'), 'image/jpeg', true, original_filename: 'test.jpg'),
+      description: '<p>ライブ配信プラットホーム</p>',
+      content: "<p>説明が入ります。ライブ配信プラットホームの開発運用。</p>",
+    )
+    WorkStyle.new(
+      slug: 'work-life-balance',
+      title: 'ワークライフバランス',
+      image: Rack::Test::UploadedFile.new(File.open(Rails.root.join('app/assets/images/undraw-digital-nomad-9-kgl.svg')), content_type: 'image/svg+xml', original_filename: 'undraw-digital-nomad-9-kgl.svg'),
+      description: '<p>完全リモートを前提とした制度設計。<br>通常業務のすべてをオンライン上で行うことにこだわりを持っています。<br>しっかり休める1日6時間労働制。</p>',
+      content: "<p>詳しい説明があれば</p>",
+    )
+    WorkStyle.create!(
+      slug: 'enginner-driven',
+      title: 'エンジニアドリブン',
+      image: Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/undraw-on-the-way-ldaq-copy.svg'), 'image/svg+xml', true, original_filename: 'undraw-on-the-way-ldaq-copy.svg'),
+      description: '<p>完会社の意思決定は、エンジニアでもある代表が作成した経営計画に基づいて行いますが、具体的な施策はエンジニアであるメンバーに意見を求めた上で決断しています。</p>',
+      content: "<p>詳しい説明があれば</p>",
+    )
+    WorkStyle.create!(
+      slug: 'individual-over-company',
+      title: '会社より個人',
+      image: Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/undraw-work-time-lhoj-copy.svg'), 'image/svg+xml', true, original_filename: 'undraw-work-time-lhoj-copy.svg'),
+      description: '<p>RubyKaigi に業務として参加できるなど、<br>エンジニアの成長を積極的に支援します。</p>',
+      content: "<p>詳しい説明があれば</p>",
     )
   end
 end
