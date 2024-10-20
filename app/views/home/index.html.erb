@@ -50,7 +50,7 @@
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
       <% @works.each do |work| %>
-        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: url_for(work.image), url: work_path(work))) %>
+        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: url_for(work.image), fit_image: "cover", url: work_path(work))) %>
       <% end %>
     </div>
     <% section.with_more do %>
@@ -119,5 +119,12 @@
         zenn.dev/p/takeyuwebinc
       <% end %>
     <% end %>
+  <% end %>
+
+ <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>開発・技術支援に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
   <% end %>
 </div>

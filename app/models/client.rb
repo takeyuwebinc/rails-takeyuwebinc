@@ -5,6 +5,8 @@ class Client < ApplicationRecord
   validates :kana, presence: true
   validates :private, inclusion: { in: [ true, false ] }
 
+  scope :public_only, -> { where(private: false) }
+
   # 公開名
   def public_name
     private? ? "非公開" : name
