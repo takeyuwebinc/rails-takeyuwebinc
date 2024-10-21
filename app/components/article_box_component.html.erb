@@ -1,15 +1,15 @@
 <% if @url %>
   <article class="group relative">
     <% if @fit_image == "cover" %>
-      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md">
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md group-hover:scale-110">
         <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-cover object-center">
       </div>
     <% elsif @fit_image == "contain" %>
-      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md">
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md group-hover:scale-110">
         <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-contain object-center">
       </div>
     <% else %>
-      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden">
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden group-hover:scale-110">
         <img src="<%= image_url @image %>" alt="<%= @title %>" class="align-bottom justify-center max-w-full max-h-full">
       </div>
     <% end %>
