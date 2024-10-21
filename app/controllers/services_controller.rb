@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
     services = {
       "レンタルチーム" => { outline: "フロントエンドからインフラまでまるごとお任せ。\n自律可能なリモートチームが事業を強力にサポート。", image: "undraw-connecting-teams-3-1-pgn.svg" },
       "コードベース改善" => { outline: "テスト品質・カバレッジの向上、リファクタリング、技術的負債の返済。\n保守しやすく事業環境の変化に早く対応できる優れたコードに。", image: "undraw-maintenance-cn-7-j.svg" },
-      "Ruby on Rails アップグレード" => { outline: "セキュアで開発効率の高い最新の Ruby on Rails に対応。", image: "rails-upgrade.svg" },
+      "Ruby on Rails アップグレード" => { outline: "セキュアで開発効率の高い最新の Ruby on Rails に対応。", image: "undraw_upgrade_re_gano.svg" },
       "技術顧問" => { outline: "高度な技能を持つエンジニアがお客様のチームの技術向上をお助けします。\n技術選択の支援、品質管理、コードレビューなど、多種多様な要望にお応えできます。", image: "undraw-co-workers-ujs-6.svg" },
       "クラウドネイティブ開発" => { outline: "ジネスの成功にあわせて増加するアクセスにも対応でき安心。\nAWS 等の各種クラウドを活用し、スケール可能なサービスを開発します。", image: "undraw-cloud-hosting-aodd.svg" },
       "UX/UI デザイン" => { outline: "使いやすいのは当たり前。\nユーザー体験を向上させるためのコミュニケーションデザインをお客様とともに実現します。", image: "undraw-development-ouy-3.svg" },
