@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe "Jobs", type: :request do
   describe "GET /index" do
     it "returns http success" do
-      get "/jobs/index"
+      get "/jobs/"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
+  describe "GET /rails_engineer" do
     it "returns http success" do
-      get "/jobs/show"
+      get "/jobs/rails_engineer"
       expect(response).to have_http_status(:success)
     end
   end
