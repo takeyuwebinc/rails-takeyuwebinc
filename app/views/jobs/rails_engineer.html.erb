@@ -127,7 +127,7 @@
       <dt class="font-bold text-lg inline-block border-b">雇用形態</dt>
       <dd>正社員</dd>
       <dt class="font-bold text-lg inline-block border-b">給与</dt>
-      <dd>1日6時間勤務 年俸 280万円～560万円<br>1日8時間勤務 年俸 373万円～747万円</dd>
+      <dd>1日6時間勤務 年俸 280万円～560万円<br>1日8時間勤務 年俸 373万円～747万円<br>1日6時間～8時間の範囲で自由に働くことができます。</dd>
       <dt class="font-bold text-lg inline-block border-b">昇給</dt>
       <dd>独自のスキル認定制度によって更新</dd>
       <dt class="font-bold text-lg inline-block border-b">勤務地</dt>
@@ -157,7 +157,10 @@
 
   <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
     <% section.with_outline do %>
-      <p>カジュアル面談または選考エントリーをご希望の方は、<br>下記のフォームよりお問い合わせください。</p>
+      <p>
+        ご興味の方は下記のフォームより、『カジュアル面談』または『エントリー』と記入の上お申し込みください。<br>
+        『エントリー』をご希望の方は、履歴書と職務経歴書を添付の上、PRメッセージを添えてお申し込みください。
+      </p>
     <% end %>
     <%= turbo_frame_tag "new_contact", src: new_contact_path %>
   <% end %>
