@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        fontawesome: [ 'FontAwesome'],
       },
       colors: {
         'corporate-50': '#f4fbea',

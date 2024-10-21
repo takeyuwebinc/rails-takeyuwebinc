@@ -11,4 +11,8 @@ class Work < ApplicationRecord
   def to_param
     slug
   end
+
+  def point_list
+    points.split(/\r?\n/)
+  end
 end

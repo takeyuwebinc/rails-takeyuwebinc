@@ -2,10 +2,10 @@ class WorksController < ApplicationController
   include EnableCacheControlPublic
 
   def index
-    render plain: "TODO: works#index"
+    @works = Work.order(:position)
   end
 
   def show
-    render plain: "TODO: works#show"
+    @work = Work.find_by!(slug: params[:id])
   end
 end

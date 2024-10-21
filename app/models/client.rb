@@ -8,7 +8,7 @@ class Client < ApplicationRecord
   scope :public_only, -> { where(private: false) }
 
   # 公開名
-  def public_name
-    private? ? "非公開" : name
+  def public_name(suffix: "")
+    private? ? "非公開のお客様" : "#{name}#{suffix}"
   end
 end

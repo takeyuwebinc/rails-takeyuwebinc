@@ -1,0 +1,57 @@
+<% title "実績" %>
+<% description "タケユー・ウェブ株式会社がお手伝いした事例の一部。例えばこんなことでお役に立てます。" %>
+<% content_for :header do %>
+  <header class="h-auto mb-">
+    <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
+      <div>
+        <%= link_to "/", class: "no-underline" do %>
+          <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
+        <% end %>
+      </div>
+      <nav class="flex space-x-4 justify-end">
+        <ul class="invisible md:visible flex space-x-2 py-2">
+          <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
+          <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
+          <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
+        </ul>
+        <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
+          お問い合わせ
+        <% end %>
+      </nav>
+    </div>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">work</div>
+          <div class="text-xl">これまでの実績</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          タケユー・ウェブ株式会社がお手伝いした事例の一部です。<br>
+          たとえばこのような事業のお手伝いをさせていただきました。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <% @works.each do |work| %>
+    <%= render(SectionComponent.new(id: work.slug, title: work.title, title_en: work.client.public_name(suffix: "様"))) do |section| %>
+      <% section.with_outline do %>
+        <%= work.content %>
+      <% end %>
+      <div class="flex flex-col space-y-10">
+        <div class="aspect-w-4 aspect-h-3">
+          <%= image_tag url_for(work.image), class: "h-full w-full object-cover object-center" %>
+        </div>
+        <div>
+          <%= render(CheckMarkListComponent.new) do |list| %>
+            <%= work.point_list.each do |point| %>
+              <% list.with_mark do %><%= point %><% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
