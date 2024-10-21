@@ -28,7 +28,7 @@ ActiveAdmin.register Work do
     end
     f.actions
   end
-  permit_params :slug, :title, :description, :content, :image, :position
+  permit_params :slug, :title, :description, :content, :image, :position, :points, :client_id
 
   show do
     attributes_table do
