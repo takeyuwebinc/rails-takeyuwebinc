@@ -209,26 +209,5 @@ if Rails.env.development?
       description: '<p>ライブ配信プラットホーム</p>',
       content: "<p>説明が入ります。ライブ配信プラットホームの開発運用。</p>",
     )
-    WorkStyle.new(
-      slug: 'work-life-balance',
-      title: 'ワークライフバランス',
-      image: Rack::Test::UploadedFile.new(File.open(Rails.root.join('app/assets/images/undraw-digital-nomad-9-kgl.svg')), content_type: 'image/svg+xml', original_filename: 'undraw-digital-nomad-9-kgl.svg'),
-      description: '<p>完全リモートを前提とした制度設計。<br>通常業務のすべてをオンライン上で行うことにこだわりを持っています。<br>しっかり休める１日６時間労働制。</p>',
-      content: "<p>詳しい説明があれば</p>",
-    )
-    WorkStyle.create!(
-      slug: 'enginner-driven',
-      title: 'エンジニアドリブン',
-      image: Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/undraw-on-the-way-ldaq-copy.svg'), 'image/svg+xml', true, original_filename: 'undraw-on-the-way-ldaq-copy.svg'),
-      description: '<p>完会社の意思決定は、エンジニアでもある代表が作成した経営計画に基づいて行いますが、具体的な施策はエンジニアであるメンバーに意見を求めた上で決断しています。</p>',
-      content: "<p>詳しい説明があれば</p>",
-    )
-    WorkStyle.create!(
-      slug: 'individual-over-company',
-      title: '会社より個人',
-      image: Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/undraw-work-time-lhoj-copy.svg'), 'image/svg+xml', true, original_filename: 'undraw-work-time-lhoj-copy.svg'),
-      description: '<p>RubyKaigi に業務として参加できるなど、<br>エンジニアの成長を積極的に支援します。</p>',
-      content: "<p>詳しい説明があれば</p>",
-    )
   end
 end

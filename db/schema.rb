@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_14_113028) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_21_061458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -226,15 +226,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_113028) do
     t.index ["expires_at"], name: "index_solid_queue_semaphores_on_expires_at"
     t.index ["key", "value"], name: "index_solid_queue_semaphores_on_key_and_value"
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
-  end
-
-  create_table "work_styles", comment: "働き方", force: :cascade do |t|
-    t.string "slug", null: false
-    t.string "title", null: false, comment: "見出し"
-    t.integer "position", default: 0, null: false, comment: "表示順（降順）"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_work_styles_on_slug", unique: true
   end
 
   create_table "works", comment: "案件", force: :cascade do |t|

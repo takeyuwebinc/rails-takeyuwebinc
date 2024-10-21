@@ -67,7 +67,7 @@
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
       <% @work_styles.each do |work_style| %>
-        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description.to_plain_text, image: (work_style.image.variable? ? work_style.image.variant(:thumb).processed : work_style.image).url(expires_in: nil))) %>
+        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: work_style.image)) %>
       <% end %>
     </div>
     <% section.with_more do %>

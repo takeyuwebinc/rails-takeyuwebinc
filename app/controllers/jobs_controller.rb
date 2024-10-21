@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @work_styles = WorkStyle.eager_load(image_attachment: :blob).with_rich_text_content.order(position: :desc)
+    @work_styles = WorkStyle.all
     @benefits = [
       Benefit.new(title: "完全リモートワーク", description: "オンラインで仕事ができる環境さえあれば 地方でもOK", image: "undraw-trip-dv-9-f.svg"),
       Benefit.new(title: "公平な賃金", description: "地方による給与の格差はありません", image: "salary.svg"),
