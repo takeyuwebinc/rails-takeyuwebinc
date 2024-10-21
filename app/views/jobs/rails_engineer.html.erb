@@ -1,0 +1,180 @@
+<% title "Railsエンジニア" %>
+<% description "Ruby on Rails による Web サービスの受託開発に取り組んでいただきます。フルリモートでの業務となります。" %>
+<% content_for :html_head do %>
+<script type="application/ld+json">
+  {
+    "@context" : "http://schema.org/",
+    "@type" : "JobPosting",
+    "title" : "Railsエンジニア",
+    "description" : "<p>Ruby on Rails による Web サービスの受託開発に取り組んでいただきます。フルリモートでの業務となります。</p>",
+    "datePosted" : "#{Date.current.beginning_of_month}",
+    "employmentType" : "FULL_TIME",
+    "hiringOrganization" : {
+      "@type" : "Organization",
+      "name" : "タケユー・ウェブ 株式会社",
+      "sameAs" : "https://takeyuweb.co.jp"
+    },
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "日本"
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "JPY",
+      "value": {
+        "@type": "QuantitativeValue",
+        "value": 5135000,
+        "minValue": 2800000,
+        "maxValue": 7470000,
+        "unitText": "YEAR"
+      }
+    },
+    "validThrough": "#{Time.current.end_of_month.iso8601}"
+  }
+</script>
+<% end %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
+      <div>
+        <%= link_to "/", class: "no-underline" do %>
+          <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
+        <% end %>
+      </div>
+      <nav class="flex space-x-4 justify-end">
+        <ul class="invisible md:visible flex space-x-2 py-2">
+          <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
+          <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
+          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
+          <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
+        </ul>
+        <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
+          お問い合わせ
+        <% end %>
+      </nav>
+    </div>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">job posting</div>
+          <div class="text-xl">Railsエンジニア</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          Ruby on Rails による Web サービスの受託開発に取り組んでいただきます。<br>
+          フルリモートでの業務となります。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "", title: "業務内容", title_en: "")) do |section| %>
+    <div class="space-y-3">
+      <p>
+        お客様が企画したサービスやシステムについてヒアリングを行い、
+        具体的な仕様に落とし込み、設計・開発していただきます。
+      </p>
+      <p>
+        実際に携わっていただく案件の例としては、
+        会員制の動画ストリーミングサイト、
+        スマートフォンアプリのバックエンドAPI、
+        オペレーション向け画面の開発、
+        設計図共有サイトなどがあります。
+      </p>
+      <p>クライアントと相談しながら、時にはより良い方法をこちらから提案するなど、主体的にサービス開発に関わることが求められます。</p>
+      <p>
+        受託開発ですので、何を作るかはお客様の要望次第です。<br>
+        依頼にあわせて必要とされる技術や製品を
+        調査し、提案し、実装し、学ぶ機会があります。
+      </p>
+    </div>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "技術スタック", title_en: "")) do |section| %>
+    <div class="space-y-3">
+      <p>
+        Ruby on Rails を使用してWebサービス開発を行います。<br>
+        必要に応じてHTML/CSSによるコーディングや。<br>JavaScriptによるフロントエンド開発も行います。<br>
+        Ruby on Rails を除く周辺技術については、担当案件によりまちまちですが、。<br>例えば以下のような技術を使用することがあります。<br>
+        また、新しい技術の導入を提案し、実施できることもあります。
+      </p>
+      <ul class="space-x-2 space-y-1">
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">Ruby on Rails</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">Tailwind CSS</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">Turbo</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">React</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">TypeScript</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">ESNext</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">HTML</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">CSS</li>
+        <li class="inline-block rounded-full border border-corporate-700 bg-corporate-700 text-white px-3 py-1">Docker</li>
+      </ul>
+    </div>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "必須要件", title_en: "")) do |section| %>
+    <ul class="list-disc list-insiee w-full sm:w-fit sm:mx-auto">
+      <li class="list-item">日本語によるコミュニケーションが堪能であること</li>
+      <li class="list-item">Ruby on Rails実務開発経験 または プログラミングスクール等での学習経験</li>
+    </ul>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "歓迎要件", title_en: "")) do |section| %>
+    <ul class="list-disc list-inside w-full sm:w-fit sm:mx-auto">
+      <li class="list-item">Linux・RDBMS・コンテナ技術など周辺技術の知識</li>
+      <li class="list-item">フロントエンド開発経験</li>
+      <li class="list-item">保守性や将来の変更に強いコードへの研究意欲</li>
+      <li class="list-item">技術系コミュニティへの積極的参加・発表経験</li>
+      <li class="list-item">オープンソース貢献</li>
+    </ul>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "求める人物像", title_en: "")) do |section| %>
+    <ul class="list-disc list-inside w-full sm:w-fit sm:mx-auto">
+      <li class="list-item">興味を持って自学自習に取り組める人</li>
+      <li class="list-item">技術的なチャレンジを楽しめる人</li>
+      <li class="list-item">テキストコミュニケーションが苦にならない人</li>
+      <li class="list-item">賑やかでない環境でもストレスにならない人</li>
+      <li class="list-item">人間関係を大切にする気持ちのある人</li>
+      <li class="list-item">何で働くかよりどう働くかを重視する人</li>
+    </ul>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "雇用条件", title_en: "")) do |section| %>
+    <dl class="sm:text-center w-full sm:w-fit sm:mx-auto space-y-3">
+      <dt class="font-bold text-lg inline-block border-b">職種</dt>
+      <dd>Railsエンジニア</dd>
+      <dt class="font-bold text-lg inline-block border-b">雇用形態</dt>
+      <dd>正社員</dd>
+      <dt class="font-bold text-lg inline-block border-b">給与</dt>
+      <dd>1日6時間勤務 年俸 280万円～560万円<br>1日8時間勤務 年俸 373万円～747万円</dd>
+      <dt class="font-bold text-lg inline-block border-b">昇給</dt>
+      <dd>独自のスキル認定制度によって更新</dd>
+      <dt class="font-bold text-lg inline-block border-b">勤務地</dt>
+      <dd>指定なし（完全リモートワーク）</dd>
+      <dt class="font-bold text-lg inline-block border-b">休日・休暇</dt>
+      <dd>完全週休二日制、国民の祝日</dd>
+      <dt class="font-bold text-lg inline-block border-b">勤務時間</dt>
+      <dd>フレックスタイム制（120～160時間/月）</dd>
+    </dl>
+  <% end %>
+  <%= render(SectionComponent.new(id: "", title: "選考プロセス", title_en: "")) do |section| %>
+    <% section.with_outline do %>
+      まずはフォームよりエントリーください。<br>
+      カジュアル面談をご希望の方は、お気軽にお問い合わせください。（審査や勧誘はありません）
+    <% end %>
+    <ol class="list-decimal list-inside w-full sm:w-fit sm:mx-auto">
+      <li class="list-item">エントリー</li>
+      <li class="list-item">書類選考</li>
+      <li class="list-item">課題選考</li>
+      <li class="list-item">一次面接</li>
+      <li class="list-item">二次面接</li>
+      <li class="list-item">試用期間</li>
+      <li class="list-item">本採用</li>
+    </ol>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>カジュアル面談または選考エントリーをご希望の方は、下記のフォームよりお問い合わせください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

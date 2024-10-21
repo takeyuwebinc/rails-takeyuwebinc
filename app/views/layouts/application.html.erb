@@ -26,15 +26,25 @@
     <% if content_for(:header) %>
       <%= yield(:header) %>
     <% else %>
-      <header class="flex justify-between items-center bg-corporate-800 dark:bg-corporate-700 dark py-2 px-5 sm:px-10 fixed top-0 w-screen h-16 z-50 shadow">
-        <div>
-          <%= link_to "/", class: "no-underline" do %>
-            <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
-          <% end %>
+      <header class="h-auto">
+        <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
+          <div>
+            <%= link_to "/", class: "no-underline" do %>
+              <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
+            <% end %>
+          </div>
+          <nav class="flex space-x-4 justify-end">
+            <ul class="invisible md:visible flex space-x-2 py-2">
+              <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
+              <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
+              <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
+              <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
+            </ul>
+            <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
+              お問い合わせ
+            <% end %>
+          </nav>
         </div>
-        <nav class="flex space-x-2 justify-end">
-          <%= link_to "お問い合わせ", new_contact_path, class: "text-white" %>
-        </nav>
       </header>
     <% end %>
     <div class="flex flex-col  bg-white dark:bg-corporate-950">

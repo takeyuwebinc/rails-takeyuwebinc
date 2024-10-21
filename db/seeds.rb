@@ -213,7 +213,7 @@ if Rails.env.development?
       slug: 'work-life-balance',
       title: 'ワークライフバランス',
       image: Rack::Test::UploadedFile.new(File.open(Rails.root.join('app/assets/images/undraw-digital-nomad-9-kgl.svg')), content_type: 'image/svg+xml', original_filename: 'undraw-digital-nomad-9-kgl.svg'),
-      description: '<p>完全リモートを前提とした制度設計。<br>通常業務のすべてをオンライン上で行うことにこだわりを持っています。<br>しっかり休める1日6時間労働制。</p>',
+      description: '<p>完全リモートを前提とした制度設計。<br>通常業務のすべてをオンライン上で行うことにこだわりを持っています。<br>しっかり休める１日６時間労働制。</p>',
       content: "<p>詳しい説明があれば</p>",
     )
     WorkStyle.create!(

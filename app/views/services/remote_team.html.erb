@@ -12,6 +12,7 @@
         <ul class="invisible md:visible flex space-x-2 py-2">
           <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
           <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
+          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
           <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
         </ul>
         <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
@@ -120,13 +121,11 @@
   <% end %>
 
   <%= render(SectionComponent.new(id: "for-whom", title: "こんなお客様に", title_en: "For Whom")) do |section| %>
-    <div class="md:mx-auto md:w-5/6">
-      <%= render(CheckMarkListComponent.new) do |list| %>
-        <% list.with_mark do %>新たなサービス・ビジネスを立ち上げたい<% end %>
-        <% list.with_mark do %>自社の開発力が不足している、Ruby on Railsに詳しい人材がいない<% end %>
-        <% list.with_mark do %>技術は専門家に任せてビジネスに集中したい<% end %>
-      <% end %>
-    </div>
+    <%= render(CheckMarkListComponent.new) do |list| %>
+      <% list.with_mark do %>新たなサービス・ビジネスを立ち上げたい<% end %>
+      <% list.with_mark do %>自社の開発力が不足している、Ruby on Railsに詳しい人材がいない<% end %>
+      <% list.with_mark do %>技術は専門家に任せてビジネスに集中したい<% end %>
+    <% end %>
   <% end %>
 
  <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "jobs/index"
+  get "jobs/show"
   devise_for :administrators, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   MissionControl::Jobs.base_controller_class ="AdminController"
