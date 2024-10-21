@@ -50,7 +50,7 @@
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
       <% @works.each do |work| %>
-        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: url_for(work.image), fit_image: "cover", url: works_path(anchor: work.slug))) %>
+        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: (work.image.variable? ? work.image.variant(:thumb).processed : work.image).url(expires_in: nil), fit_image: "cover", url: works_path(anchor: work.slug))) %>
       <% end %>
     </div>
     <% section.with_more do %>
@@ -66,7 +66,7 @@
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
       <% @work_styles.each do |work_style| %>
-        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: url_for(work_style.image))) %>
+        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: (work_style.image.variable? ? work_style.image.variant(:thumb).processed : work_style.image).url(expires_in: nil))) %>
       <% end %>
     </div>
     <% section.with_more do %>

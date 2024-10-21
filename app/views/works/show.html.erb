@@ -40,7 +40,7 @@
       <%= @work.content %>
     <% end %>
     <div class="aspect-w-4 aspect-h-3">
-      <%= image_tag url_for(@work.image), class: "h-full w-full object-cover object-center" %>
+      <%= image_tag (work.image.variable? ? work.image.variant(:default).processed : work.image).url(expires_in: nil), class: "h-full w-full object-cover object-center" %>
     </div>
     <%= render(CheckMarkListComponent.new) do |list| %>
       <%= @work.point_list.each do |point| %>
