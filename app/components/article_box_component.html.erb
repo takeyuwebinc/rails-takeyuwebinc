@@ -15,14 +15,14 @@
     <% end %>
 
     <div class="mt-4 text-center">
-      <h3 class="text-lg text-black">
+      <h3 class="text-lg ">
         <a href="<%= @url %>">
           <span aria-hidden="true" class="absolute inset-0"></span>
           <%= @title %>
         </a>
       </h3>
       <% if @outline.present? %>
-        <p class="text-sm text-gray-500"><%= @outline %></p>
+        <p class="text-sm text-gray-500 dark:text-gray-400"><%= @outline %></p>
       <% end %>
     </div>
   </article>
@@ -43,12 +43,12 @@
     <% end %>
 
     <div class="mt-4 text-center">
-      <h3 class="text-lg text-black">
+      <h3 class="text-lg ">
         <span aria-hidden="true" class="absolute inset-0"></span>
         <%= @title %>
       </h3>
       <% if @outline.present? %>
-        <p class="text-sm text-gray-500"><%= @outline %></p>
+        <p class="text-sm text-gray-500 dark:text-gray-400"><%= @outline %></p>
       <% end %>
     </div>
   </article>

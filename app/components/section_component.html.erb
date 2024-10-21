@@ -1,5 +1,5 @@
-<section id="<%= @id %>" class="px-5 md:px-10 max-w-[960px] mx-auto">
-  <h2 class="text-2xl font-bold text-black mb-4 text-center before:content-[attr(data-en)] before:block before:font-sans before:text-lg before:font-bold before:text-gray-300" data-en="<%= @title_en %>"><%= @title %></h2>
+<section id="<%= @id %>" class="px-5 md:px-10 max-w-[960px] mx-auto text-black dark:text-gray-100">
+  <h2 class="text-2xl font-bold mb-4 text-center before:content-[attr(data-en)] before:block before:font-sans before:text-lg before:font-bold before:text-gray-300 dark:before:text-gray-500" data-en="<%= @title_en %>"><%= @title %></h2>
   <% if outline? %>
     <div class="text-left md:text-center mb-4">
       <%= outline %>
