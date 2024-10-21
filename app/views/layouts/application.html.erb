@@ -27,23 +27,7 @@
       <%= yield(:header) %>
     <% else %>
       <header class="h-auto">
-        <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
-          <div>
-            <%= link_to "/", class: "no-underline" do %>
-              <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
-            <% end %>
-          </div>
-          <nav class="flex space-x-4 justify-end">
-            <ul class="invisible md:visible flex space-x-2 py-2">
-              <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
-              <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
-              <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
-              <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
-            </ul>
-            <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
-              お問い合わせ
-            <% end %>
-          </nav>
+        <%= render "nav_bar" %>
         </div>
       </header>
     <% end %>
@@ -60,7 +44,7 @@
           </main>
         </div>
       </div>
-      <footer class=" bg-corporate-800 dark:bg-corporate-700 text-gray-100 dark py-3 mt-20 shrink-0" aria-labelledby="footer-heading">
+      <footer class="bg-corporate-700 dark:bg-corporate-950 text-gray-100 dark py-3 mt-20 shrink-0" aria-labelledby="footer-heading">
         <div class="container mx-auto">
           <div class="px-5 pt-10">
             <section class="px-5 sm:px-10">
@@ -79,10 +63,6 @@
                   <td class="font-normal text-sm text-left block sm:table-cell">代表取締役 竹内雄一</td>
                 </tr>
                 <tr class="block mt-2 sm:mt-0 sm:table-row">
-                  <th class="font-normal text-sm text-left block sm:table-cell">業務内容</th>
-                  <td class="font-normal text-sm text-left block sm:table-cell">情報通信業（情報サービス業）</td>
-                </tr>
-                <tr class="block mt-2 sm:mt-0 sm:table-row">
                   <th class="font-normal text-sm text-left block sm:table-cell">事業内容</th>
                   <td class="font-normal text-sm text-left block sm:table-cell">
                     ウェブアプリケーションの企画、開発、運用、保守及びコンサルティング業務
@@ -91,10 +71,6 @@
                 <tr class="block mt-2 sm:mt-0 sm:table-row">
                   <th class="font-normal text-sm text-left block sm:table-cell">資本金</th>
                   <td class="font-normal text-sm text-left block sm:table-cell">200万円</td>
-                </tr>
-                <tr class="block mt-2 sm:mt-0 sm:table-row">
-                  <th class="font-normal text-sm text-left block sm:table-cell">電話番号</th>
-                  <td class="font-normal text-sm text-left block sm:table-cell">048-700-3094</td>
                 </tr>
               </table>
             </section>

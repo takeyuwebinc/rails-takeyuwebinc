@@ -1,25 +1,8 @@
 <% title "サービス" %>
 <% description "素早く製品を評価して改善をするのに最適な高速Webサービス開発が得意。" %>
 <% content_for :header do %>
-  <header class="h-auto mb-">
-    <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
-      <div>
-        <%= link_to "/", class: "no-underline" do %>
-          <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
-        <% end %>
-      </div>
-      <nav class="flex space-x-4 justify-end">
-        <ul class="invisible md:visible flex space-x-2 py-2">
-          <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
-          <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
-          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
-          <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
-        </ul>
-        <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
-          お問い合わせ
-        <% end %>
-      </nav>
-    </div>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
     <div class="max-w-[960px] w-full mx-auto ">
       <div class="h-auto px-5 p-12 flex flex-col gap-12">
         <h1 class="text-white text-center">

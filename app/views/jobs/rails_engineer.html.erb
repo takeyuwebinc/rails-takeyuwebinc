@@ -36,24 +36,7 @@
 <% end %>
 <% content_for :header do %>
   <header class="h-auto">
-    <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
-      <div>
-        <%= link_to "/", class: "no-underline" do %>
-          <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
-        <% end %>
-      </div>
-      <nav class="flex space-x-4 justify-end">
-        <ul class="invisible md:visible flex space-x-2 py-2">
-          <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
-          <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
-          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
-          <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
-        </ul>
-        <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
-          お問い合わせ
-        <% end %>
-      </nav>
-    </div>
+    <%= render "nav_bar" %>
     <div class="max-w-[960px] w-full mx-auto ">
       <div class="h-auto px-5 p-12 flex flex-col gap-12">
         <h1 class="text-white text-center">
@@ -70,7 +53,7 @@
 <% end %>
 
 <div class="flex-col space-y-16 md:space-y-36">
-  <%= render(SectionComponent.new(id: "", title: "業務内容", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "job-description", title: "業務内容", title_en: "Job Description")) do |section| %>
     <div class="space-y-3">
       <p>
         お客様が企画したサービスやシステムについてヒアリングを行い、
@@ -91,7 +74,7 @@
       </p>
     </div>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "技術スタック", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "tech-stack", title: "技術スタック", title_en: "Tech Stack")) do |section| %>
     <div class="space-y-3">
       <p>
         Ruby on Rails を使用してWebサービス開発を行います。<br>
@@ -112,13 +95,13 @@
       </ul>
     </div>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "必須要件", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "requirements", title: "必須要件", title_en: "Requirements")) do |section| %>
     <ul class="list-disc list-insiee w-full sm:w-fit sm:mx-auto">
       <li class="list-item">日本語によるコミュニケーションが堪能であること</li>
       <li class="list-item">Ruby on Rails実務開発経験 または プログラミングスクール等での学習経験</li>
     </ul>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "歓迎要件", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "preferred-qualifications", title: "歓迎要件", title_en: "Preferred Qualifications")) do |section| %>
     <ul class="list-disc list-inside w-full sm:w-fit sm:mx-auto">
       <li class="list-item">Linux・RDBMS・コンテナ技術など周辺技術の知識</li>
       <li class="list-item">フロントエンド開発経験</li>
@@ -127,7 +110,7 @@
       <li class="list-item">オープンソース貢献</li>
     </ul>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "求める人物像", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "ideal-candidate", title: "求める人物像", title_en: "Ideal Candidate")) do |section| %>
     <ul class="list-disc list-inside w-full sm:w-fit sm:mx-auto">
       <li class="list-item">興味を持って自学自習に取り組める人</li>
       <li class="list-item">技術的なチャレンジを楽しめる人</li>
@@ -137,7 +120,7 @@
       <li class="list-item">何で働くかよりどう働くかを重視する人</li>
     </ul>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "雇用条件", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "employment-conditions", title: "雇用条件", title_en: "Employment Conditions")) do |section| %>
     <dl class="sm:text-center w-full sm:w-fit sm:mx-auto space-y-3">
       <dt class="font-bold text-lg inline-block border-b">職種</dt>
       <dd>Railsエンジニア</dd>
@@ -155,10 +138,11 @@
       <dd>フレックスタイム制（120～160時間/月）</dd>
     </dl>
   <% end %>
-  <%= render(SectionComponent.new(id: "", title: "選考プロセス", title_en: "")) do |section| %>
+  <%= render(SectionComponent.new(id: "selection-process", title: "選考プロセス", title_en: "Selection Process")) do |section| %>
     <% section.with_outline do %>
       まずはフォームよりエントリーください。<br>
-      カジュアル面談をご希望の方は、お気軽にお問い合わせください。（審査や勧誘はありません）
+      カジュアル面談をご希望の方は、お気軽にお問い合わせください。<br>
+      （カジュアル面談には審査や勧誘はありません）
     <% end %>
     <ol class="list-decimal list-inside w-full sm:w-fit sm:mx-auto">
       <li class="list-item">エントリー</li>
@@ -173,7 +157,7 @@
 
   <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
     <% section.with_outline do %>
-      <p>カジュアル面談または選考エントリーをご希望の方は、下記のフォームよりお問い合わせください。</p>
+      <p>カジュアル面談または選考エントリーをご希望の方は、<br>下記のフォームよりお問い合わせください。</p>
     <% end %>
     <%= turbo_frame_tag "new_contact", src: new_contact_path %>
   <% end %>
