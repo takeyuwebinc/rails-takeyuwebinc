@@ -7,6 +7,10 @@ class Client < ApplicationRecord
 
   scope :public_only, -> { where(private: false) }
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "created_at", "id", "id_value", "kana", "name", "private", "slug", "updated_at", "website" ]
+  end
+
   # 公開名
   def public_name(suffix: "")
     private? ? "非公開のお客様" : "#{name}#{suffix}"

@@ -11,6 +11,10 @@ class Work < ApplicationRecord
   validates :points, presence: true
   validates :position, presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "client_id", "created_at", "id", "id_value", "points", "position", "slug", "title", "updated_at" ]
+  end
+
   def to_param
     slug
   end
