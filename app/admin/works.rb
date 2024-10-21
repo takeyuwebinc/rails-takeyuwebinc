@@ -21,7 +21,8 @@ ActiveAdmin.register Work do
       f.input :title
       f.input :description, as: :rich_text_area
       f.input :content, as: :rich_text_area
-      f.input :image
+      f.input :image, as: :file
+      f.input :points
       f.input :position
       f.input :client
     end
