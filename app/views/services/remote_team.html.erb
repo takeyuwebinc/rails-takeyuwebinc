@@ -1,0 +1,120 @@
+<% title "リモート開発チーム" %>
+<% description "リモートワーク専業企業としてリモートワークの特性を最大限発揮し お客様に優れた開発力を提供します。" %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">service</div>
+          <div class="text-xl">リモートチーム</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          必要な職能を必要な分だけ。<br>
+          各分野のエキスパートがあなたのサービスの成長をサポートします。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "whats-remote-team", title: "リモートチームとは？", title_en: "What's \"Remote Team\"")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        Web開発は最もリモートワークに適した業務のひとつです。<br>
+        私たちはリモートワーク専業企業としてこの特性を最大限利用し、<br>
+        お客様に優れた開発力を提供します。
+      </p>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "what-we-do", title: "私たちにできること", title_en: "What We Do")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        私たちの開発チームにまるごとお任せください。<br>
+        お客様の作りたいものを一緒に考えて、必要なことはすべてタケユーウェブが実行します。
+      </p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @services.each do |service| %>
+        <%= render(ArticleBoxComponent.new(**service)) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "why-remote-team", title: "なぜリモートチームなのか", title_en: "Why \"Remote Team\"")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        タケユーウェブのリモートチームは、オンラインによる効率的なコミュニケーションと、<br>
+        リモートワーク専業開発会社ならではの最適化したコラボレーションで、効率的なオンライン開発を実現します。
+      </p>
+    <% end %>
+    <div class="flex flex-col gap-y-16 mt-16">
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4">
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw-work-time-lhoj.svg" %>
+        </div>
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">リモートワークのメリットとデメリット</h2>
+            <p>
+              リモートワークなので、地理的・物理的な制約を受けません。全国の優秀なエンジニアが、お客様の開発メンバーになります。<br>
+              また、ビデオ会議などを活用したオンラインミーティングに習熟しており、打ち合わせのために移動したり会議室の空きを待つ必要がなく、貴重な開発時間を節約できます。<br>
+              物理的なオフィスにかかる費用がかからないため、その分を金額やエンジニアの報酬に反映でき、より安くより品質の高いエンジニアリングを提供できます。
+            </p>
+            <p>一方で、リモートワーカーのマネジメントは難しいといわれています。これはまだ十分なノウハウがない会社が多いためです。リモート専業の開発会社として経験豊富なタケユー・ウェブなら、リモートワークでもしっかり機能します。</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4">
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">チームであることの重要性と難しさ</h2>
+            <p>
+              お客様のアイデアをソフトウェアの力で実現し、進化させる開発チームは事業開発では不可欠です。<br>
+              フリーランスエンジニアなどの個人と異なり、チームではそれぞれの専門知識を持ち寄ることで、幅広く高いレベルのエンジニアリングを実現することができます。
+            </p>
+            <p>
+              自社で新たに開発チームを立ち上げるためには、エンジニア採用を行う必要があります。<br>
+              専門家でも難しいといわれているエンジニア採用を成功させることは、人材不足が叫ばれる昨今、特に難しいものとなっています。<br>
+              集めた人材をチームとして機能させるためには、適切なマネジメントが必要で、十分なパフォーマンスを発揮できる練度を獲得するまでの時間もかかります。
+            </p>
+          </div>
+        </div>
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw-team-ih-79.svg", class: "align-bottom justify-center w-full" %>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4">
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw_business_deal_cpi9.svg" %>
+        </div>
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">まるっとお任せ</h2>
+            <p>
+              開発の仕事は、お客様との責任の境界が曖昧では、適切な権限委譲ができずチームが機能しません。<br>
+              わたしたちは仕様の検討から、設計、開発まですべてまるっとお任せいただくことで、チームの生産性を高め、エンジニアのパフォーマンスを最大化します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "for-whom", title: "こんなお客様に", title_en: "For Whom")) do |section| %>
+    <%= render(CheckMarkListComponent.new) do |list| %>
+      <% list.with_mark do %>新たなサービス・ビジネスを立ち上げたい<% end %>
+      <% list.with_mark do %>自社の開発力が不足している、Ruby on Railsに詳しい人材がいない<% end %>
+      <% list.with_mark do %>技術は専門家に任せてビジネスに集中したい<% end %>
+    <% end %>
+  <% end %>
+
+ <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>リモートチームに関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

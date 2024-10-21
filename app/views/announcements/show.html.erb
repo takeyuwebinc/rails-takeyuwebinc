@@ -7,18 +7,12 @@
 <% end %>
 
 <article class="flex-col space-y-5 w-full py-10">
-  <div class="px-5 sm:px-10">
-    <div class="text-sm text-gray-500 dark:text-gray-200"><%=l @announcement.created_at.to_date %></div>
-    <h1 class="text-xl sm:text-2xl font-extralight border-b border-black dark:border-white mb-3 pb-3 mt-2"><%= @announcement.title %></h1>
-  </div>
-
-  <div class="px-5 sm:px-10">
-    <%= @announcement.content %>
-  </div>
-
-  <% if @announcement.image.attached? %>
-    <div class="px-5 sm:px-10">
-      <%= image_tag @announcement.image.variant(:default).processed.url(expires_in: nil), class: "rounded-md" %>
-    </div>
+  <%= render(SectionComponent.new(id: @announcement.to_slug, title: @announcement.title, title_en: @announcement.created_at.to_date)) do |section| %>
+    <div><%= @announcement.content %></div>
+    <% if @announcement.image.attached? %>
+      <div class="px-5 sm:px-10">
+        <%= image_tag (@announcement.image.variable? ? @announcement.image.variant(:default).processed : @announcement.image).url(expires_in: nil), class: "rounded-md" %>
+      </div>
+    <% end %>
   <% end %>
 </article>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="137" height="110" viewBox="0 0 137 110">
+    <defs>
+        <linearGradient id="a" x1="50.001%" x2="50.001%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="gray" stop-opacity=".25"/>
+            <stop offset="54%" stop-color="gray" stop-opacity=".12"/>
+            <stop offset="100%" stop-color="gray" stop-opacity=".1"/>
+        </linearGradient>
+        <linearGradient id="b" x1="49.999%" x2="49.999%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="gray" stop-opacity=".25"/>
+            <stop offset="54%" stop-color="gray" stop-opacity=".12"/>
+            <stop offset="100%" stop-color="gray" stop-opacity=".1"/>
+        </linearGradient>
+        <linearGradient id="c" x1="50%" x2="50%" y1="99.996%" y2="0%">
+            <stop offset="0%" stop-color="gray" stop-opacity=".25"/>
+            <stop offset="54%" stop-color="gray" stop-opacity=".12"/>
+            <stop offset="100%" stop-color="gray" stop-opacity=".1"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <rect width="72.955" height="66.795" y=".059" fill="url(#a)" opacity=".5" rx="4.5" transform="translate(0 3)"/>
+        <rect width="72" height="66" x="1" y="3" fill="#F5F5F5" rx="4.5"/>
+        <rect width="13" height="11" x="6" y="14" fill="#7CBE35" rx="4.5"/>
+        <rect width="48" height="1" x="23" y="14" fill="#E0E0E0" rx=".5"/>
+        <rect width="48" height="1" x="23" y="18" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="31" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="35" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="40" fill="#E0E0E0" rx=".5"/>
+        <rect width="38" height="1" x="5" y="43" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="48" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="51" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="6" y="56" fill="#E0E0E0" rx=".5"/>
+        <rect width="38" height="1" x="5" y="60" fill="#E0E0E0" rx=".5"/>
+        <rect width="72.955" height="66.795" x=".045" y=".104" fill="url(#b)" opacity=".5" rx="4.5" transform="translate(11 19)"/>
+        <rect width="72" height="66" x="12" y="18" fill="#FFF" rx="4.5"/>
+        <rect width="13" height="11" x="17" y="30" fill="#7CBE35" rx="4.5"/>
+        <rect width="48" height="1" x="33" y="30" fill="#E0E0E0" rx=".5"/>
+        <rect width="48" height="1" x="33" y="34" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="47" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="51" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="55" fill="#E0E0E0" rx=".5"/>
+        <rect width="38" height="1" x="16" y="58" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="64" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="67" fill="#E0E0E0" rx=".5"/>
+        <rect width="65" height="1" x="16" y="72" fill="#E0E0E0" rx=".5"/>
+        <rect width="38" height="1" x="16" y="75" fill="#E0E0E0" rx=".5"/>
+        <path stroke="#535461" d="M84 44l1-1"/>
+        <path stroke="#535461" stroke-dasharray="12.58" d="M87 42l25-24"/>
+        <path stroke="#535461" d="M113 17l1-1M85 66l1 1"/>
+        <path stroke="#535461" stroke-dasharray="12.44" d="M87 68l26 23"/>
+        <path stroke="#535461" d="M114 92l1 1"/>
+        <ellipse cx="20.468" cy="20.486" fill="url(#c)" opacity=".5" rx="20.467" ry="20.388" transform="translate(95 69)"/>
+        <circle cx="115" cy="89" r="20" fill="#F5F5F5"/>
+        <path fill="#FDD835" d="M126 91.242c0 7.457-4.702 15.758-10.5 15.758S105 98.697 105 91.242C105 83.787 109.702 80 115.5 80S126 83.784 126 91.242z"/>
+        <path fill="#7CBE35" d="M115.239 109c3.825.006 7.568-1.056 10.761-3.052-.72-3.735-3.466-3.948-3.466-3.948h-15.131s-2.59.202-3.403 3.638c3.29 2.193 7.216 3.367 11.239 3.362z"/>
+        <path fill="#000" d="M112 97h6v5.242c0 1.523-1.204 2.758-2.689 2.758h-.622c-1.485 0-2.689-1.235-2.689-2.758V97z" opacity=".1"/>
+        <path fill="#FDB797" d="M112.512 97h4.974a.52.52 0 0 1 .514.527v4.716c0 1.523-1.204 2.757-2.689 2.757h-.622c-1.485 0-2.689-1.234-2.689-2.757v-4.716a.52.52 0 0 1 .512-.527z"/>
+        <path fill="#000" d="M112 98.569a10.81 10.81 0 0 0 6 .013V98h-6v.569z" opacity=".1"/>
+        <circle cx="116" cy="91" r="9" fill="#FDB797"/>
+        <ellipse cx="107" cy="90.5" fill="#FDB797" rx="1" ry="1.5"/>
+        <ellipse cx="124" cy="90.5" fill="#FDB797" rx="1" ry="1.5"/>
+        <path fill="#000" d="M107 85.984s5.088 6.877 16.735 4.526c0 0 1.301-1.564-1.866-6.37-3.167-4.805-11.985-4.022-14.869 1.844z" opacity=".1"/>
+        <path fill="#FDD835" d="M107 85.985s5.088 6.873 16.735 4.527c0 0 1.301-1.565-1.866-6.37-3.167-4.806-11.985-4.026-14.869 1.843z"/>
+        <ellipse cx="20.587" cy="20.467" fill="url(#c)" opacity=".5" rx="20.52" ry="20.467" transform="translate(95)"/>
+        <circle cx="116" cy="20" r="20" fill="#F5F5F5"/>
+        <path fill="#7CBE35" d="M115.242 40c3.824.006 7.566-1.056 10.758-3.052-.72-3.735-3.465-3.948-3.465-3.948h-15.133s-2.59.202-3.402 3.638c3.291 2.194 7.218 3.368 11.242 3.362z"/>
+        <circle cx="116" cy="20" r="10" fill="#333"/>
+        <path fill="#000" d="M113 27h6v5.242c0 1.523-1.204 2.758-2.689 2.758h-.622c-1.485 0-2.689-1.235-2.689-2.758V27z" opacity=".1"/>
+        <path fill="#FDB797" d="M113.516 27h4.97a.52.52 0 0 1 .514.527v4.716c0 1.523-1.203 2.757-2.687 2.757h-.622a2.652 2.652 0 0 1-1.902-.806 2.794 2.794 0 0 1-.789-1.951v-4.716c0-.14.054-.275.151-.374a.506.506 0 0 1 .365-.153z"/>
+        <path fill="#000" d="M113 29.569a10.81 10.81 0 0 0 6 .013V29h-6v.569z" opacity=".1"/>
+        <circle cx="116" cy="21" r="9" fill="#FDB797"/>
+        <path fill="#000" d="M109 14.3s3.663 7.826 14 3.28l-2.407-3.97-4.266-1.61L109 14.3z" opacity=".1"/>
+        <path fill="#333" d="M109 13.302s3.663 7.823 14 3.279l-2.407-3.97L116.327 11 109 13.302z"/>
+        <path fill="#333" d="M109.185 13.01a5.018 5.018 0 0 1 1.26-2.029c1.734-1.693 4.59-2.05 6.053-3.981.161.276.196.607.096.91-.1.302-.326.55-.62.68 1.399-.01 3.023-.13 3.816-1.267.4.916.228 1.977-.441 2.726 1.242.055 2.567.886 2.647 2.107.054.814-.465 1.585-1.144 2.052-.679.468-1.5.682-2.31.857-2.356.514-10.898 2.664-9.357-2.055z"/>
+        <ellipse cx="107" cy="21.5" fill="#FDB797" rx="1" ry="1.5"/>
+        <ellipse cx="124" cy="21.5" fill="#FDB797" rx="1" ry="1.5"/>
+    </g>
+</svg>

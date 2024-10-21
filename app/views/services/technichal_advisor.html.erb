@@ -1,0 +1,80 @@
+<% title "技術顧問" %>
+<% description "Railsのスペシャリストが力になります" %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">service</div>
+          <div class="text-xl">技術顧問</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          Rails のスペシャリストが自社にいないことで、なにかお困りごとはありませんか？<br>
+          タケユーウェブの専門家たちが、技術的な課題解決をサポートします。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "whats-technical-advisor", title: "技術顧問とは？", title_en: "What's \"Technical Advisor\"")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+         月々一定の顧問料をいただき、タケユー・ウェブが Ruby on Rails やその周辺技術についての
+         相談を受けたり、最新情報の情報共有、技術的に難しい領域の開発など、Ruby on Rails の専門家として
+         お客様の開発チームの様々な課題解決を支援します。
+      </p>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "what-we-do", title: "私たちにできること", title_en: "What We Do")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        開発チームからのご要望の数だけ、できることが増えていきます。
+      </p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @services.each do |service| %>
+        <%= render(ArticleBoxComponent.new(**service)) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "why-technical-advisor", title: "なぜ技術顧問なのか", title_en: "Why \"Technical Advisor\"")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        高い技能と深い知識を持った Ruby on Rails の専門家の採用は難しく、十分な報酬も必要になります。<br>
+        一方ですべての業務で常に専門家レベルの技能が必要というわけでもありません。<br>
+        技術顧問契約なら、必要なときに必要なだけの支援を受けることができ、効率的です。
+      </p>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "for-whom", title: "こんなお客様に", title_en: "For Whom")) do |section| %>
+    <%= render(CheckMarkListComponent.new) do |list| %>
+      <% list.with_mark do %>誤った設計・実装・技術選択により、将来の発展に支障をきたすことを予防したい<% end %>
+      <% list.with_mark do %>社内に Ruby / Ruby on Rails に詳しい人材がいない<% end %>
+      <% list.with_mark do %>困ったときに相談できる相手がほしい<% end %>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "about-visit-consultation", title: "訪問相談について", title_en: "About Visit Consultation")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        タケユーウェブではオンラインでの技術相談を基本としておりますが、<br>
+        お客様のオフィスなどお客様ご指定の場所での技術相談を希望される場合、出張での訪問相談も可能です。<br>
+        訪問相談は移動時間等をもとにした出張費用と交通費を別途頂戴します。<br>
+        詳しくはお問い合わせください。
+      </p>
+    <% end %>
+  <% end %>
+
+ <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>技術顧問に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

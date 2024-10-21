@@ -1,0 +1,131 @@
+<% content_for :header do %>
+  <header class="h-auto sm:h-[640px]">
+    <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
+      <h1>
+        <%= link_to "/", class: "no-underline" do %>
+          <%= image_tag 'logo.png', alt: "タケユー・ウェブ株式会社", class: "w-32" %>
+        <% end %>
+      </h1>
+      <nav class="flex space-x-4 justify-end">
+        <ul class="hidden md:flex md:space-x-2 md:py-2">
+          <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
+          <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
+          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
+          <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
+        </ul>
+        <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
+          お問い合わせ
+        <% end %>
+      </nav>
+    </div>
+    <div class="max-w-[960px] w-full mx-auto">
+      <div class="flex justify-center items-center h-auto md:h-[536px] px-5">
+        <%= image_tag "top/mv.svg", class: "hidden md:block w-full", alt: "エンジニアリングをもっと自由に楽しく" %>
+        <%= image_tag "top/mv_sp.png", class: "block md:hidden w-full", alt: "エンジニアリングをもっと自由に楽しく" %>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "whoweare", title: "タケユーウェブって？", title_en: "Who We Are")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        タケユーウェブは、Ruby on Rails を武器に<br>お客様のウェブの課題を解決するスペシャリスト集団です。<br>
+        お客様が直面している人材とノウハウの課題を解決する<br>自律した開発チームを提供します。
+      </p>
+    <% end %>
+    <div class="grid grid-rows-1 grid-cols-1 text-center">
+      <%= image_tag "top/takeyuweb_chart.svg", alt: "タケユーウェブのサービス", class: "justify-self-center self-center max-w-full max-h-full align-bottom" %>
+    </div>
+    <% section.with_more do %>
+      <%= render(ButtonComponent.new(href: services_path)) do %>
+        もっと見る
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "works", title: "これまでの実績", title_en: "Works")) do |section| %>
+    <% section.with_outline do %>
+      <p>タケユーウェブではウェブサービスの受託開発を行っています。<br>そのなかからいくつか事例をご紹介します。</p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @works.each do |work| %>
+        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: (work.image.variable? ? work.image.variant(:thumb).processed : work.image).url(expires_in: nil), fit_image: "cover", url: works_path(anchor: work.slug))) %>
+      <% end %>
+    </div>
+    <% section.with_more do %>
+      <%= render(ButtonComponent.new(href: works_path)) do %>
+        もっと見る
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "recruit", title: "タケユーウェブの働き方", title_en: "Our Work Style")) do |section| %>
+    <% section.with_outline do %>
+      <p>完全リモートワークなど新しい働き方を実践することによって<br class="invisible md:visible">全国から優秀なエンジニアが集まります。</p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @work_styles.each do |work_style| %>
+        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: work_style.image)) %>
+      <% end %>
+    </div>
+    <% section.with_more do %>
+      <%= render(ButtonComponent.new(href: jobs_path)) do %>
+        もっと見る
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "news", title: "お知らせ", title_en: "News")) do |section| %>
+    <% section.with_outline do %>
+      <p>タケユーウェブからのお知らせです。</p>
+    <% end %>
+    <div class="md:mx-10">
+     <table class="min-w-full">
+        <colgroup>
+          <col class="w-full sm:w-3/4">
+          <col class="sm:w-1/4">
+        </colgroup>
+        <thead class="sm:border-b border-gray-300 text-gray-900 dark:text-gray-100">
+          <tr>
+            <th scope="col" class="hidden sm:table-cell py-3.5 pl-0 pr-3 text-left text-sm font-semibold text-gray-900">見出し</th>
+            <th scope="col" class="hidden sm:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">掲載日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Announcement.order(created_at: :desc).limit(5).each do |announcement| %>
+          <tr class="sm:border-b border-gray-200 dark:text-gray-100">
+            <td class="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+              <div class="font-medium text-gray-900 dark:text-gray-100"><%= link_to announcement.title, announcement %></div>
+              <div class="mt-1 truncate text-gray-500 dark:text-gray-200"><%= announcement.content.to_plain_text %></div>
+              <div class="sm:hidden py-5 text-left text-xs text-gray-500 dark:text-gray-200"><%=l announcement.created_at.to_date %></div>
+            </td>
+            <td class="hidden px-3 py-5 text-left text-sm text-gray-500 dark:text-gray-200 sm:table-cell"><%=l announcement.created_at.to_date %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+
+  <%= render(SectionComponent.new(id: "blog", title: "技術ブログ", title_en: "Tech Blog")) do |section| %>
+    <% section.with_outline do %>
+      <p>Railsや関連技術について書いています。</p>
+    <% end %>
+    <!-- TODO: 記事を取得 -->
+    <% section.with_more do %>
+      <%= render(ButtonComponent.new(href: "https://zenn.dev/p/takeyuwebinc", target: "_blank")) do %>
+        zenn.dev/p/takeyuwebinc
+      <% end %>
+    <% end %>
+  <% end %>
+
+ <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>開発・技術支援に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

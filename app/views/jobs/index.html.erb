@@ -1,0 +1,68 @@
+<% title "採用情報" %>
+<% description "新しい働き方を実践するタケユーウェブで働く" %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">recruit</div>
+          <div class="text-xl">採用情報</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          タケユーウェブは、働き方にこだわった会社です。<br>
+          エンジニアにとって働きやすい環境を提供することが価値を生むと信じているからです。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "our-work-style", title: "タケユーウェブの働き方", title_en: "Our Work Style")) do |section| %>
+    <% section.with_outline do %>
+      <p>新しい働き方を実践しています。</p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @work_styles.each do |work_style| %>
+        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: work_style.image)) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "benefit", title: "タケユーウェブが提供するもの", title_en: "Benefits")) do |section| %>
+    <% section.with_outline do %>
+      <p>タケユーウェブはエンジニアの自由に全力でコミットします</p>
+    <% end %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @benefits.each do |benefit| %>
+        <%= render(ArticleBoxComponent.new(title: benefit.title, outline: benefit.description, image: benefit.image)) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "job-posting", title: "募集職種", title_en: "Job Posting")) do |section| %>
+    <% section.with_outline do %>
+      <p>現在募集中の職種一覧です</p>
+    <% end %>
+    <% if @job_postings.empty? %>
+      <div class="inline-block mx-auto text-center py-3 yx-2 border">現在、募集中の職種はありません。</div>
+    <% else %>
+      <ul class="text-center space-y-3">
+        <% @job_postings.each do |job_posting| %>
+          <li><%= link_to job_posting.title, job_path(job_posting.slug) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        ご興味の方は下記のフォームより、『カジュアル面談』または『エントリー』と記入の上お申し込みください。<br>
+        『エントリー』をご希望の方は、履歴書と職務経歴書を添付の上、PRメッセージを添えてお申し込みください。
+      </p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

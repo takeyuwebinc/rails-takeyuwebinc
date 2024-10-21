@@ -1,0 +1,55 @@
+<% if @url %>
+  <article class="group relative">
+    <% if @fit_image == "cover" %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md group-hover:scale-110">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-cover object-center">
+      </div>
+    <% elsif @fit_image == "contain" %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md group-hover:scale-110">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-contain object-center">
+      </div>
+    <% else %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden group-hover:scale-110">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="align-bottom justify-center max-w-full max-h-full">
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <h3 class="text-lg text-black">
+        <a href="<%= @url %>">
+          <span aria-hidden="true" class="absolute inset-0"></span>
+          <%= @title %>
+        </a>
+      </h3>
+      <% if @outline.present? %>
+        <p class="text-sm text-gray-500"><%= @outline %></p>
+      <% end %>
+    </div>
+  </article>
+<% else %>
+  <article class="relative">
+    <% if @fit_image == "cover" %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-cover object-center">
+      </div>
+    <% elsif @fit_image == "contain" %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden rounded-md">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="h-full w-full object-contain object-center">
+      </div>
+    <% else %>
+      <div class="aspect-h-1 aspect-w-2 w-full overflow-hidden">
+        <img src="<%= image_url @image %>" alt="<%= @title %>" class="align-bottom justify-center max-w-full max-h-full">
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <h3 class="text-lg text-black">
+        <span aria-hidden="true" class="absolute inset-0"></span>
+        <%= @title %>
+      </h3>
+      <% if @outline.present? %>
+        <p class="text-sm text-gray-500"><%= @outline %></p>
+      <% end %>
+    </div>
+  </article>
+<% end %>

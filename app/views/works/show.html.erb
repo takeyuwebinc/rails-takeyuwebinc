@@ -1,0 +1,35 @@
+<% title @work.title %>
+<% description @work.description.to_plain_text %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">work</div>
+          <div class="text-xl">これまでの実績</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          タケユー・ウェブ株式会社がお手伝いした事例の一部です。<br>
+          たとえばこのような事業のお手伝いをさせていただきました。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: @work.slug, title: @work.title, title_en: @work.client.public_name + "様")) do |section| %>
+    <% section.with_outline do %>
+      <%= @work.content %>
+    <% end %>
+    <div class="aspect-w-4 aspect-h-3">
+      <%= image_tag (work.image.variable? ? work.image.variant(:default).processed : work.image).url(expires_in: nil), class: "h-full w-full object-cover object-center" %>
+    </div>
+    <%= render(CheckMarkListComponent.new) do |list| %>
+      <%= @work.point_list.each do |point| %>
+        <% list.with_mark do %><%= point %><% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

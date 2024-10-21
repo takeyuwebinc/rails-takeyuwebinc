@@ -248,6 +248,7 @@ GEM
     marcel (1.0.4)
     meta-tags (2.22.1)
       actionpack (>= 6.0.0, < 8.1)
+    method_source (1.1.0)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.25.1)
@@ -348,7 +349,6 @@ GEM
       logger
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    redcarpet (3.6.0)
     regexp_parser (2.9.0)
     reline (0.5.10)
       io-console (~> 0.5)
@@ -450,6 +450,10 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     useragent (0.16.10)
+    view_component (3.17.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -491,7 +495,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.1)
   rails-i18n (~> 7.0)
-  redcarpet
   rspec-rails
   rubocop-rails-omakase
   ruby-lsp-rails
@@ -503,6 +506,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  view_component (~> 3.17)
   web-console
 
 BUNDLED WITH

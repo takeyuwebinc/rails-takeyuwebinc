@@ -1,0 +1,182 @@
+<% title "受託開発" %>
+<% description "Railsのスペシャリストが力になります" %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">service</div>
+          <div class="text-xl">受託開発</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          新規・引継・保守・リプレース、いずれも対応可能です。<br>
+          Ruby on Rails を使った開発なら、タケユーウェブにお任せください。
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "what-we-do", title: "私たちにできること", title_en: "What We Do")) do |section| %>
+    <% section.with_outline do %>
+      <p>
+        新規開発だけでなく、他社様から引き継いでの保守開発にも対応可能です。<br>
+        Ruby on Railsを中心に、要件にあわせてインフラ構成、クラウドサービス利用などもあわせて提案できます。<br>
+        高度な技術で構築されるメンテナンス性の高いコードは、納品後お客様の開発チームに引き継ぐ場合でも、引き継ぎやすく継続開発を行いやすい特徴があります。
+      </p>
+    <% end %>
+
+    <div class="flex flex-col gap-y-16 mt-16">
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-10">
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw-programming-2-svr.svg" %>
+        </div>
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">新規Webサービス開発</h2>
+            <p>
+              お客様の業務改善や新規事業に必要なWebサービスを、高い開発効率で人気のRuby on Railsに精通したエンジニアが高速に開発します。<br>
+              お客様はサービスの肝となるアイデアやセキュリティ要件などをお伝えいただくだけで、具体的な仕様やシステム設計、デザイン、実装などすべてお任せいただけます。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-10">
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">保守開発</h2>
+            <p>
+              たとえばお客様の会社所属の非エンジニア社員が開発したWebサービスが業務の中で重要なものになり今後のために専門家のサポートを受けたい、他社で開発運用をしていたものの品質や対応に不満があり変更したいなど、既存のWebサービスをタケユー・ウェブが引き継いで保守できます。<br>
+              Ruby / Ruby on Rails アップグレード経験も豊富なので、古いシステムを新しいものに更新したい場合にもお任せください。
+            </p>
+          </div>
+        </div>
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw_QA_engineers_dg5p.svg", class: "align-bottom justify-center w-full" %>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-y-4 sm:gap-x-10">
+        <div class="sm:basis-1/3">
+          <%= image_tag "undraw-product-teardown-elol.svg" %>
+        </div>
+        <div class="sm:basis-2/3">
+          <div class="flex-grow-1 flex flex-col gap-y-2">
+            <h3 class="text-xl font-bold text-black mb-4 text-center">システムリプレース開発</h2>
+            <p>
+              一般にITシステムの耐用年数は5年とされています。<br>
+              古くなったシステムはセキュリティリスクが高くなりますし、追加開発も難しく、時間も工数もかかり保守費用が高くついてしまいます。<br>
+              そのような場合は、開発速度に優れる最新の Ruby on Rails で開発した新しいシステムに置き換えることをおすすめします。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "about-contract-plan", title: "ご契約プランについて", title_en: "About Contract Plan")) do |section| %>
+    <% section.with_outline do %>
+      <p>お客様のニーズに合わせて、いくつかのプランから最適なものをお選びいただけます。</p>
+    <% end %>
+
+    <div class="flex flex-col gap-y-16 mt-16">
+      <div class="flex flex-col gap-y-5">
+        <h3 class="text-xl font-bold text-black text-center">レンタル開発チームプラン</h2>
+        <p>開発ボリュームやご予算を元に月額を定め、ご希望の機能のうちシステム化が重要なものから順次実装していくプランです。お客様の判断でリリース（検収）となります。</p>
+        <div class="bg-gradient-to-b from-lime-600 to-lime-700 w-[640px] max-w-[640px] mx-auto px-7 py-5 text-white text-center flex flex-col gap-y-10">
+          <h4 class="inline-block text-bold border border-white px-2 py-4">たとえば月額100万円のレンタル契約で、3ヶ月で完了した場合</h4>
+          <%= image_tag "services/outsourcing/outsourcing_plan_rental_team.png", alt: "レンタル開発チームプランの料金イメージ" %>
+          <div>月額 100万円  ✕  3ヶ月  ＝  300万円</div>
+        </div>
+        <p>
+          請負プランと異なり、お支払金額にバッファを含まないため、必要最低限の費用での開発が可能です。<br>
+          また、開発を進めながらの軌道修正も可能なので、仕様を完全に詰める前から開発をスタートできます。
+        </p>
+        <%= render(CheckMarkListComponent.new) do |list| %>
+          <% list.with_mark do %>必要に応じてUI/UXデザインコンサルティングも可能<% end %>
+          <% list.with_mark do %>追加開発・改修は都度お見積もり<% end %>
+        <% end %>
+      </div>
+      <div class="flex flex-col gap-y-5">
+        <h3 class="text-xl font-bold text-black text-center">請負プラン</h2>
+        <p>事前に決定した仕様の実現に対して、決まった金額をお支払いいただくプランです。</p>
+        <div class="bg-gradient-to-b from-lime-600 to-lime-700 w-[640px] max-w-[640px] mx-auto px-7 py-5 text-white text-center flex flex-col gap-y-10">
+          <h4 class="inline-block text-bold border border-white px-2 py-4">たとえば500万円の見積もりで、3ヶ月納期の場合</h4>
+          <%= image_tag "services/outsourcing/outsourcing_plan_outsourcing.png", alt: "サブスクリプションプランの料金イメージ" %>
+          <div>納品後 500万円</div>
+        </div>
+        <p>
+          決められた予算内でリリースする必要がある場合に最適なプランです。<br>
+          ただし、大きく仕様に変更や追加が発生した場合、都度追加のお見積もりとなります。
+        </p>
+        <%= render(CheckMarkListComponent.new) do |list| %>
+          <% list.with_mark do %>必要に応じてUI/UXデザインコンサルティングも可能<% end %>
+          <% list.with_mark do %>納品後の追加・改修は都度お見積もり<% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "faq", title: "よくあるご質問", title_en: "FAQ")) do |section| %>
+    <% section.with_outline do %>
+      <p>お客様から寄せられる、よくあるご質問についてお答えします。</p>
+    <% end %>
+
+    <div class="flex flex-col gap-y-10">
+      <div class="flex flex-col gap-y-5">
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-corporate-500 before:font-bold before:text-white" data-before="Q">
+          <h3 class="text-lg font-bold mb-3">まずはサービスの実現性を優先したいので、できる部分からリリースしてもらえますか？</h3>
+          <div>
+            最終的にやりたいことはたくさんありますが、まずは半年後にリリースできることを優先したいので、デザイン性や機能性よりも、まずは実現できることを優先したいです。このような開発の進め方に対応できますか？
+          </div>
+        </div>
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-white before:border before:border-corporate-500 before:font-bold before:text-corporate-500" data-before="A">
+          <h4 class="text-lg font-bold mb-3">はい。対応可能です。</h4>
+          <div>
+            まずは実現したいことの優先順位付けを行う段階からご相談させていただき、順位の高いものから開発を進め、お客様がご納得いただける段階でリリースとなります。<br>リリース後も継続して、機能追加や反応を見ての変更など、開発を柔軟に進めることが可能です。
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-y-5">
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-corporate-500 before:font-bold before:text-white" data-before="Q">
+          <h3 class="text-lg font-bold mb-3">デザインもお任せすることはできますか？</h3>
+          <div>
+            システム開発をお願いしたいのですが、デザイナーはどのように手配すればよいですか？そちらでまるっとお任せすることはできますか？
+          </div>
+        </div>
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-white before:border before:border-corporate-500 before:font-bold before:text-corporate-500" data-before="A">
+          <h4 class="text-lg font-bold mb-3">はい。デザイナーと協業しており、効率的です。</h4>
+          <div>
+            タケユーウェブは優れたUIデザイナーと協業しています。<br>
+            日頃よりエンジニアとデザイナーが連携して開発を進めておりますので、別途デザイン会社に依頼いただくよりも効率的にプロジェクトを進めることができます。
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-y-5">
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-corporate-500 before:font-bold before:text-white" data-before="Q">
+          <h3 class="text-lg font-bold mb-3">デザインとコーディングは自社で行うので、システム側のみお願いすることはできますか？</h3>
+          <div>
+            自社でもデザインやコーディングは可能なのですが、システム開発は対応できるリソースがないため、外注先を検討予定です。<br>
+            Webサービスのシステム部分全般の開発と、デザインの実現にあたりシステム観点からアドバイスをしていただきたいです。
+          </div>
+        </div>
+        <div class="pl-10 relative before:flex before:justify-center before:items-center before:absolute before:left-0 before:-top-1 before:content-[attr(data-before)] before:text-center before:w-8 before:h-8 before:bg-white before:border before:border-corporate-500 before:font-bold before:text-corporate-500" data-before="A">
+          <h4 class="text-lg font-bold mb-3">はい。システム側のみの対応経験も豊富ですので、お任せください</h4>
+          <div>
+            お客様よりご提供いただいたデザインをベースに開発を行うことも可能です。<br>
+            その場合、デザイン組み込みの際にシステム側との矛盾があったり、実装が困難である場合など、弊社より部分的な変更をご提案するなど、柔軟に対応できます。<br>
+            もちろん、デザインの段階でシステム的に実現が可能かどうかについても、ご質問いただければ検討の上回答いたします。
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>受託開発に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>

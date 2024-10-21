@@ -1,0 +1,99 @@
+<% title "企業情報" %>
+<% description "エンジニアリングをもっと自由に楽しく" %>
+<% content_for :header do %>
+  <header class="h-auto">
+    <%= render "nav_bar" %>
+    <div class="max-w-[960px] w-full mx-auto ">
+      <div class="h-auto px-5 p-12 flex flex-col gap-12">
+        <h1 class="text-white text-center">
+          <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">company</div>
+          <div class="text-xl">企業情報</div>
+        </h1>
+        <div class="text-center text-white leading-relaxed">
+          エンジニアリングをもっと自由に楽しく
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
+
+<div class="flex-col space-y-16 md:space-y-36">
+  <%= render(SectionComponent.new(id: "company-overview", title: "会社概要", title_en: "Company Overview")) do |section| %>
+    <% section.with_outline do %>
+      <p></p>
+    <% end %>
+    <table class="block sm:table sm:w-fit sm:mx-auto space-y-3">
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">社名</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">タケユー・ウェブ株式会社（TakeyuWeb Inc.）</td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">代表者</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">代表取締役 竹内雄一</td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">設立</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">2016年6月3日</td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">沿革</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">
+          <table class="block sm:table">
+            <tr class="block sm:table-row">
+              <th class="font-normal text-sm text-left block sm:table-cell">2008年11月18日</th>
+              <td class="font-normal text-sm text-left block sm:table-cell">個人事業としてタケユー・ウェブ開業</td>
+            </tr>
+            <tr class="block sm:table-row">
+              <th class="font-normal text-sm text-left block sm:table-cell">2016年6月3日</th>
+              <td class="font-normal text-sm text-left block sm:table-cell">タケユー・ウェブ株式会社設立</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">資本金</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">200万円</td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">所在地</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">〒330-0802 埼玉県さいたま市大宮区宮町一丁目5番地 銀座ビル7階</td>
+      </tr>
+      <tr class="block sm:table-row border-b">
+        <th class="font-bold text-sm text-left block sm:table-cell align-top sm:p-2">事業内容</th>
+        <td class="font-normal text-sm text-left block sm:table-cell sm:p-2">
+          ウェブアプリケーションの企画、開発、運用、保守及びコンサルティング業務
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "affiliations", title: "加入団体", title_en: "Affiliations")) do |section| %>
+    <ul class="sm:w-fit sm:mx-auto">
+      <li>Ruby Association</li>
+      <li>さいたま商工会議所</li>
+    </ul>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "banks", title: "取引銀行", title_en: "Banks")) do |section| %>
+    <ul class="sm:w-fit sm:mx-auto">
+      <li>みずほ銀行大宮支店</li>
+      <li>埼玉縣信用金庫大宮支店</li>
+    </ul>
+  <% end %>
+
+  <%= render(SectionComponent.new(id: "sponsors", title: "協賛", title_en: "Sponsors")) do |section| %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <%= render(ArticleBoxComponent.new(title: "RubyKaigi 2024", image: image_path("sponsors/rubykaigi2024.png"), fit_image: "contain", url: "https://rubykaigi.org/2024/")) %>
+      <%= render(ArticleBoxComponent.new(title: "Kaigi on Rails 2024", image: image_path("sponsors/kaigionrails2024_ogp.png"), fit_image: "contain", url: "https://kaigionrails.org/2024/")) %>
+      <%= render(ArticleBoxComponent.new(title: "RubyWorld Conference 2024", image: image_path("sponsors/rwc2024-300x100-sponsor.png"), fit_image: "contain", url: "https://2024.rubyworld-conf.org/ja/")) %>
+      <%= render(ArticleBoxComponent.new(title: "Ruby Association", image: image_path("sponsors/RAsponsor-s.png"), fit_image: "contain", url: "https://www.ruby.or.jp/ja/")) %>
+    </div>
+  <% end %>
+
+ <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
+    <% section.with_outline do %>
+      <p>開発・技術支援に関するお問い合わせ・ご相談は、下記のフォームよりお気軽にお寄せください。</p>
+    <% end %>
+    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
+  <% end %>
+</div>
