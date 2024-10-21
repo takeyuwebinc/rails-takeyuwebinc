@@ -49,3 +49,5 @@
 /config/credentials/production.key
 
 /config/credentials/development.key
+
+/.kamal/secrets-common
