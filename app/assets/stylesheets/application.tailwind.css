@@ -12,4 +12,5 @@
     background: url(/header_bg.png);
   }
   a { @apply underline hover:no-underline hover:opacity-75 }
+  a[target="_blank"] { @apply after:font-fontawesome after:content-['\f35d'] after:font-extrabold after:ml-2 after:no-underline }
 }
