@@ -23,4 +23,11 @@ Rails.application.routes.draw do
   resources :works, only: [ :index, :show ]
   resources :jobs, only: [ :index, :show ]
   resource :company, only: [ :show ]
+
+  get "/service", to: redirect("/services")
+  get "/service/ses", to: redirect("/services/remote_team")
+  get "/service/consulting", to: redirect("/services/technichal_advisor")
+  get "/service/development", to: redirect("/services/outsourcing")
+  get "/recruit", to: redirect("/jobs")
+  get "/aboutus", to: redirect("/company")
 end
