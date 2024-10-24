@@ -31,14 +31,14 @@
         </div>
       </header>
     <% end %>
+    <% if content_for(:breadcrumbs) %>
+      <div class="w-full max-w-[960px] mx-auto text-gray-700 dark:text-gray-300 pt-10 px-5">
+        <%= yield(:breadcrumbs) %>
+      </div>
+    <% end %>
     <div class="flex flex-col  bg-white dark:bg-corporate-950">
       <div class="w-full max-w-[960px] mx-auto grow">
         <div class="px-5 pt-16">
-          <% if content_for(:breadcrumbs) %>
-            <div class="text-xs text-gray-500 dark:text-gray-200 pt-10">
-              <%= yield(:breadcrumbs) %>
-            </div>
-          <% end %>
           <main>
             <%= yield %>
           </main>
