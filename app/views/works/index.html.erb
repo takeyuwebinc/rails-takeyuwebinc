@@ -19,23 +19,11 @@
 <% end %>
 
 <div class="flex-col space-y-16 md:space-y-36">
-  <% @works.each do |work| %>
-    <%= render(SectionComponent.new(id: work.slug, title: work.title, title_en: work.client.public_name(suffix: "様"))) do |section| %>
-      <% section.with_outline do %>
-        <%= work.content %>
+  <div class="px-5 md:px-10 max-w-[960px] mx-auto text-black dark:text-gray-100">
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+      <% @works.each do |work| %>
+        <%= render(ArticleBoxComponent.new(title: work.title, outline: work.client.public_name, image: (work.image.variable? ? work.image.variant(:thumb).processed : work.image).url(expires_in: nil), fit_image: "cover", url: work_path(work))) %>
       <% end %>
-      <div class="flex flex-col space-y-10">
-        <div class="aspect-w-4 aspect-h-3">
-          <%= image_tag (work.image.variable? ? work.image.variant(:default).processed : work.image).url(expires_in: nil), class: "h-full w-full object-cover object-center" %>
-        </div>
-        <div>
-          <%= render(CheckMarkListComponent.new) do |list| %>
-            <%= work.point_list.each do |point| %>
-              <% list.with_mark do %><%= point %><% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>
