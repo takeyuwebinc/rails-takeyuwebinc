@@ -13,6 +13,9 @@
           タケユーウェブは、働き方にこだわった会社です。<br>
           エンジニアにとって働きやすい環境を提供することが価値を生むと信じているからです。
         </div>
+        <div class="py-2 px-3 border text-center text-white">
+          現在新規の採用受付は停止しています。
+        </div>
       </div>
     </div>
   </header>
@@ -43,26 +46,15 @@
 
   <%= render(SectionComponent.new(id: "job-posting", title: "募集職種", title_en: "Job Posting")) do |section| %>
     <% section.with_outline do %>
-      <p>現在募集中の職種一覧です</p>
-    <% end %>
-    <% if @job_postings.empty? %>
-      <div class="inline-block mx-auto text-center py-3 yx-2 border">現在、募集中の職種はありません。</div>
-    <% else %>
-      <ul class="text-center space-y-3">
-        <% @job_postings.each do |job_posting| %>
-          <li><%= link_to job_posting.title, job_path(job_posting.slug) %></li>
-        <% end %>
-      </ul>
+      <p>現在、募集中の職種はありません。</p>
     <% end %>
   <% end %>
 
   <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
     <% section.with_outline do %>
       <p>
-        ご興味の方は下記のフォームより、『カジュアル面談』または『エントリー』と記入の上お申し込みください。<br>
-        『エントリー』をご希望の方は、履歴書と職務経歴書を添付の上、PRメッセージを添えてお申し込みください。
+        現在新規の採用受付は停止しています。
       </p>
     <% end %>
-    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
   <% end %>
 </div>

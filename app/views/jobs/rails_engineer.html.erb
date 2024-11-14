@@ -47,6 +47,9 @@
           Ruby on Rails による Web サービスの受託開発に取り組んでいただきます。<br>
           フルリモートでの業務となります。
         </div>
+        <div class="py-2 px-3 border text-center text-white">
+          現在新規の採用受付は停止しています。
+        </div>
       </div>
     </div>
   </header>
@@ -158,10 +161,8 @@
   <%= render(SectionComponent.new(id: "contact", title: "お問い合わせ", title_en: "Contact")) do |section| %>
     <% section.with_outline do %>
       <p>
-        ご興味の方は下記のフォームより、『カジュアル面談』または『エントリー』と記入の上お申し込みください。<br>
-        『エントリー』をご希望の方は、履歴書と職務経歴書を添付の上、PRメッセージを添えてお申し込みください。
+        現在新規の採用受付は停止しています。
       </p>
     <% end %>
-    <%= turbo_frame_tag "new_contact", src: new_contact_path %>
   <% end %>
 </div>
