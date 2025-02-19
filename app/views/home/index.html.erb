@@ -1,5 +1,5 @@
 <% content_for :header do %>
-  <header class="h-auto sm:h-[640px]">
+  <header class="h-auto">
     <div class="flex justify-between items-center dark py-2 px-5 sm:px-10 h-16 z-50 max-w-[960px] w-full mx-auto">
       <h1>
         <%= link_to "/", class: "no-underline" do %>
@@ -10,19 +10,12 @@
         <ul class="hidden md:flex md:space-x-2 md:py-2">
           <li><a href="/services" class="text-white no-underline hover:underline">サービス</a></li>
           <li><a href="/works" class="text-white no-underline hover:underline">開発実績</a></li>
-          <li><a href="/jobs" class="text-white no-underline hover:underline">採用情報</a></li>
           <li><a href="/company" class="text-white no-underline hover:underline">企業情報</a></li>
         </ul>
         <%= render(GoastButtonComponent.new(href: new_contact_path)) do %>
           お問い合わせ
         <% end %>
       </nav>
-    </div>
-    <div class="max-w-[960px] w-full mx-auto">
-      <div class="flex justify-center items-center h-auto md:h-[536px] px-5">
-        <%= image_tag "top/mv.svg", class: "hidden md:block w-full", alt: "エンジニアリングをもっと自由に楽しく" %>
-        <%= image_tag "top/mv_sp.png", class: "block md:hidden w-full", alt: "エンジニアリングをもっと自由に楽しく" %>
-      </div>
     </div>
   </header>
 <% end %>
@@ -31,13 +24,10 @@
   <%= render(SectionComponent.new(id: "whoweare", title: "タケユーウェブって？", title_en: "Who We Are")) do |section| %>
     <% section.with_outline do %>
       <p>
-        タケユーウェブは、Ruby on Rails を武器に<br>お客様のウェブの課題を解決するスペシャリスト集団です。<br>
-        お客様が直面している人材とノウハウの課題を解決する<br>自律した開発チームを提供します。
+        タケユーウェブは、Ruby on Rails を武器に<br>お客様のウェブの課題を解決するのフルスタックエンジニアです。<br>
+        お客様が直面している技術的な課題を解決するために、<br>お客様と共に考え、幅広い視点から解決策を見つけます。
       </p>
     <% end %>
-    <div class="grid grid-rows-1 grid-cols-1 text-center">
-      <%= image_tag "top/takeyuweb_chart.svg", alt: "タケユーウェブのサービス", class: "justify-self-center self-center max-w-full max-h-full align-bottom" %>
-    </div>
     <% section.with_more do %>
       <%= render(ButtonComponent.new(href: services_path)) do %>
         もっと見る
@@ -56,22 +46,6 @@
     </div>
     <% section.with_more do %>
       <%= render(ButtonComponent.new(href: works_path)) do %>
-        もっと見る
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <%= render(SectionComponent.new(id: "recruit", title: "タケユーウェブの働き方", title_en: "Our Work Style")) do |section| %>
-    <% section.with_outline do %>
-      <p>完全リモートワークなど新しい働き方を実践することによって<br class="invisible md:visible">全国から優秀なエンジニアが集まります。</p>
-    <% end %>
-    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
-      <% @work_styles.each do |work_style| %>
-        <%= render(ArticleBoxComponent.new(title: work_style.title, outline: work_style.description, image: work_style.image)) %>
-      <% end %>
-    </div>
-    <% section.with_more do %>
-      <%= render(ButtonComponent.new(href: jobs_path)) do %>
         もっと見る
       <% end %>
     <% end %>

@@ -7,12 +7,11 @@
       <div class="h-auto px-5 p-12 flex flex-col gap-12">
         <h1 class="text-white text-center">
           <div class="uppercase text-6xl font-bold font-sans inline-block border-b-8 pb-2 tracking-tight mb-5">service</div>
-          <div class="text-xl">私たちにでできること</div>
+          <div class="text-xl">私にでできること</div>
         </h1>
         <div class="text-center text-white leading-relaxed">
           タケユーウェブは、素早く製品を評価して改善をするのに最適な、<br>
-          Ruby on RailsによるWebサービス開発が得意です。<br>
-          従来型の請負開発に加え、初期費用を抑えて費用を平準化できる定額制の開発サービスも展開。
+          Ruby on RailsによるWebサービス開発が得意です。
         </div>
       </div>
     </div>
@@ -24,34 +23,33 @@
     <% section.with_outline do %>
       <p>
         タケユーウェブは、Ruby on Rails を武器に<br>
-        お客様のウェブの課題を解決するスペシャリスト集団です。<br>
+        お客様のウェブの課題を解決するスペシャリストです。<br>
         高品質かつ高速な開発でお客様のサービスの価値向上を促進します。
       </p>
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
-      <%= render(ArticleBoxComponent.new(title: "リモートチーム", outline: "各分野のエキスパートがあなたのサービスの成長をともに実現していきます。", image: image_path("undraw-live-collaboration-2-r-4-y.svg"), url: service_path("remote_team"))) %>
       <%= render(ArticleBoxComponent.new(title: "技術顧問", outline: "技術に関するコーチングや情報提供を行います。", image: image_path("undraw-interview-rmcf.svg"), url: service_path("technichal_advisor"))) %>
-      <%= render(ArticleBoxComponent.new(title: "受託開発", outline: "頂いた要件を元にシステムを作ります。足りない社内のリソースを私たちが一時的にサポートします。", image: image_path("undraw-programming-2-svr.svg"), url: service_path("outsourcing"))) %>
+      <%= render(ArticleBoxComponent.new(title: "受託開発", outline: "頂いた要件を元にシステムを作ります。足りない社内のリソースを私が一時的にサポートします。", image: image_path("undraw-programming-2-svr.svg"), url: service_path("outsourcing"))) %>
     </div>
   <% end %>
 
   <%= render(SectionComponent.new(id: "our-strength", title: "選ばれる理由", title_en: "Our Strength")) do |section| %>
     <% section.with_outline do %>
       <p>
-        優秀なエンジニアと生産性の高いフレームワークがタケユーウェブの強みです。
+        経験豊富なエンジニアと生産性の高いフレームワークがタケユーウェブの強みです。
       </p>
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
-      <%= render(ArticleBoxComponent.new(title: "優秀なエンジニア", outline: "新しい働き方を実践することで、全国の優秀な人材を確保します。", image: image_path("undraw-superhero-kguv.svg"))) %>
+      <%= render(ArticleBoxComponent.new(title: "経験豊富なエンジニア", outline: "技術カンファレンス登壇経験もある経験豊富なエンジニアです。", image: image_path("undraw-superhero-kguv.svg"))) %>
       <%= render(ArticleBoxComponent.new(title: "Ruby on Rails", outline: "優れた生産性から、Web開発の分野で非常に人気のある Ruby on Rails という「フレームワーク」の専門家です。", image: image_path("train-track-sharp-solid.svg"))) %>
-      <%= render(ArticleBoxComponent.new(title: "低コスト", outline: "社員は全員フルリモート。オフィスなどの固定費が少ない分、料金を抑えることができます。", image: image_path("undraw_savings_hjfl.svg"))) %>
+      <%= render(ArticleBoxComponent.new(title: "低コスト", outline: "一人で幅広く対応できる柔軟性で、料金を抑えることができます。", image: image_path("undraw_savings_hjfl.svg"))) %>
     </div>
   <% end %>
 
   <%= render(SectionComponent.new(id: "our-services", title: "いろんな角度から開発を支援", title_en: "Our Services")) do |section| %>
     <% section.with_outline do %>
       <p>
-        優秀なエンジニアと生産性の高いフレームワークがタケユーウェブの強みです。
+        関連する技術を幅広く習得したフルスタックがタケユーウェブの強みです。
       </p>
     <% end %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
@@ -61,7 +59,7 @@
     </div>
   <% end %>
 
-  <%= render(SectionComponent.new(id: "our-clients", title: "私たちのクライアント", title_en: "Our Clients")) do |section| %>
+  <%= render(SectionComponent.new(id: "our-clients", title: "私のクライアント", title_en: "Our Clients")) do |section| %>
     <% section.with_outline do %>
       <p>
         いろいろな形でウェブでの課題解決に携わっています。
